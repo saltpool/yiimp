@@ -1,11 +1,10 @@
-### Welcome To Afiniel Yiimp page!
- 
- This fork of YiiMP is designed to work with Afiniel YiimPool Installer. Trying to install this Yiimp fork may result in issues and crashes!
+### Yiimp PHP 8.3!
+## What's broken
+Explorer in admin control panel is currently broken with php 8.3. Actually, anything explorer related is currently broken. 
 
-## To install this Yiimp fork use our YiimPool installer.
-
+## To install this Yiimp fork use our Yiimp install script.
 ```
-https://github.com/Afiniel-tech/Yiimpool-Installer
+https://github.com/craiglyoung/yiimp_install_script
 ```
 -  From there follow the instructions and the Yiimp will be installed.
 
@@ -29,3 +28,4 @@ Updated various files to work with new file structure and sql
 
 * Thanks to tpruvot for the yiimp release
 * Thanks to mailinabox for the installer idea
+* Thanks for Afiniel-tech for their updates
