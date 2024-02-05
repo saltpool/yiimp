@@ -7,7 +7,9 @@
 ```
 https://github.com/craiglyoung/yiimp_install_script, pulling the yiimp_install_script-8.3 branch.
 ```
--  From there follow the instructions and the Yiimp will be installed.
+-  From there follow the instructions and then Yiimp will be installed.
+
+## This is still a work-in-progress. Do not use on your production server!
 
 ## Credits:
 
