@@ -37,7 +37,7 @@ class ExplorerController extends CommonController
 
     /////////////////////////////////////////////////
     // Hide coin id from explorer links... created by createUrl()
-    public function createUrl($route, $params = array() , $ampersand = '&')
+    public static function createUrl($route, $params = array() , $ampersand = '&')
     {
         if ($route == '/explorer' && isset($params['id']))
         {
