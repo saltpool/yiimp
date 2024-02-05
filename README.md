@@ -1,6 +1,7 @@
 ### Yiimp PHP 8.3!
-## What's broken
-Explorer in admin control panel is currently broken with php 8.3. Actually, anything explorer related is currently broken. 
+## What's know to be broken
+- Explorer in admin control panel is currently broken with php 8.3. Actually, anything explorer related is currently broken.
+- current_results is broken
 
 ## To install this Yiimp fork use our Yiimp install script.
 ```
