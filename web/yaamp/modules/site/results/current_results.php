@@ -172,14 +172,14 @@ foreach ($algos as $item)
 
                              echo "<td align='center' style='font-size: .8em;'>$symbol</td>";
 
-//            $workers_coins = getdbocount('db_workers', "algo=:algo and pid=:pid and not password like '%m=solo%'", array(
-//                ':algo' => $algo,
-//                ':pid' => $port_db->pid
-//            ));
-//            $solo_workers_coins = getdbocount('db_workers', "algo=:algo and pid=:pid and password like '%m=solo%'", array(
-//                ':algo' => $algo,
-//                ':pid' => $port_db->pid
-//            ));
+            $workers_coins = getdbocount('db_workers', "algo=:algo and pid=:pid and not password like '%m=solo%'", array(
+                ':algo' => $algo,
+                ':pid' => $port_db->pid
+            ));
+            $solo_workers_coins = getdbocount('db_workers', "algo=:algo and pid=:pid and password like '%m=solo%'", array(
+                ':algo' => $algo,
+                ':pid' => $port_db->pid
+            ));
 	   if ($port_count == 1) 
 		echo "<td align='center' style='font-size: .8em;'>$workers_coins / $solo_workers_coins</td>";
 	   else
