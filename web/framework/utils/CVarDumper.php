@@ -3,9 +3,9 @@
  * CVarDumper class file.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @link http://www.yiiframework.com/
+ * @link https://www.yiiframework.com/
  * @copyright 2008-2013 Yii Software LLC
- * @license http://www.yiiframework.com/license/
+ * @license https://www.yiiframework.com/license/
  */
 
 /**
@@ -46,7 +46,6 @@ class CVarDumper
 	{
 		debuglog(self::dumpAsString($var,$depth)."\r\n", 3, YAAMP_LOGS."/debug.log");
 	}
-
 	/**
 	 * Dumps a variable in terms of a string.
 	 * This method achieves the similar functionality as var_dump and print_r
