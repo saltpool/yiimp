@@ -45,7 +45,7 @@ echo CHtml::scriptFile('/yaamp/ui/js/jquery.tablesorter.js');
 // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-// ga('create', 'UA-58136019-1', 'auto');
+// ga('create', 'xxxxx', 'auto');
 // ga('send', 'pageview');
 
 // $(document).ajaxSuccess(function(){ga('send', 'pageview');});
@@ -147,7 +147,7 @@ function showPageFooter()
     echo '<div class="footer">';
     $year = date("Y", time());
 
-    echo "<p>&copy; $year " . YAAMP_SITE_NAME . ' - ' . '<a href="https://github.com/Afiniel-tech/Yiimpool-Installer">Built With Afiniel YiimPool Installer</a></p>';
+    echo "<p>&copy; $year " . YAAMP_SITE_NAME . ' - ' . '<a href="https://github.com/saltpool/yiimp_install_script">Built With Saltpool Yiimp</a></p>';
 
     echo '</div><!-- footer -->';
 }
