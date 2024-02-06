@@ -118,7 +118,7 @@ class db_coins extends CActiveRecord
 			$urlParams = array_merge(array('id'=>$this->id), $params);
 			Yii::import('application.modules.explorer.ExplorerController');
 //			$url = ExplorerController::createUrl('/explorer', $urlParams);  //This breaks in PHP8.3, need to investigate and fix
-			$url = "";
+                        $url = "/explorer?id=" . $this->id;
 			return CHtml::link($label, trim($url,'?'), $htmlOptions);
 		}
 		return $label;
