@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <meta name="description" content="Built With Afiniel YiimPool Installer">
+    <meta name="description" content="Built With Saltpool Yiimp Installer">
     <meta name="keywords" content="yiimp,anonymous,mining,pool,maxcoin,bitcoin,altcoin,auto,switch,exchange,profit">
 
 <?php
