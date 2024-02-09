@@ -1,6 +1,6 @@
 # Yiimp for Ubuntu 22.04, PHP 8.2 & Yii Framework 1.1.29!
 ## What's known to be broken
-- Explorer in admin control panel is currently broken with php 8.3. Actually, anything explorer related is currently broken.
+- ...
 
 ## To install this Yiimp fork use our Yiimp install script.
 ```
