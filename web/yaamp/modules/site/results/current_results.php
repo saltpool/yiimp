@@ -1,8 +1,8 @@
 <?php
 $defaultalgo = user()->getState('yaamp-algo');
-echo "<div class='main-left-box'>";
-echo "<div class='main-left-title'>Pool Status</div>";
-echo "<div class='main-left-inner'>";
+echo "<div class='ui-widget'>";
+echo "<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>Pool Status</div>";
+echo "<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>";
 showTableSorter('maintable1', "{
     tableClass: 'dataGrid2',
     textExtraction: {
@@ -14,17 +14,17 @@ echo <<<END
 <thead>
 <tr>
 <th>Coins</th>
-<th data-sorter="numeric" style="font-size: .8em" align="center">Auto Exchanged</th>
-<th data-sorter="numeric" style="font-size: .8em" align="center">Port</th>
-<th data-sorter="numeric" style="font-size: .8em" align="center">Symbol</th>
-<th data-sorter="numeric" style="font-size: .8em" align="center">Miners<br/>Share / Solo</th>
-<th data-sorter="numeric" style="font-size: .8em" align="center">Pool Hashrate</th>
-<th data-sorter="numeric" style="font-size: .8em" align="center">Network Hashrate</th>
+<th data-sorter="numeric" align="center">Auto Exchanged</th>
+<th data-sorter="numeric" align="center">Port</th>
+<th data-sorter="numeric" align="center">Symbol</th>
+<th data-sorter="numeric" align="center">Miners<br/>Share / Solo</th>
+<th data-sorter="numeric" align="center">Pool Hashrate</th>
+<th data-sorter="numeric" align="center">Network Hashrate</th>
 <th data-sorter="currency" align="center">Fees<br/>Share / Solo</th>
-<!--<th data-sorter="currency" class="estimate" align="right">Current<br />Estimate</th>-->
+<!--<th data-sorter="currency"  class="estimate" align="right">Current<br />Estimate</th>-->
 <!--<th data-sorter="currency" >Norm</th>-->
 <!--<th data-sorter="currency" class="estimate" align="right">24 Hours<br />Estimated</th>-->
-<th data-sorter="currency" style="font-size: .8em" align="center">24 Hours<br />Actual</th>
+<th data-sorter="currency" align="center">24 Hours<br />Actual</th>
 </tr>
 </thead>
 END;
@@ -123,23 +123,24 @@ foreach ($algos as $item)
     $fees_solo = yaamp_fee_solo($algo);
     $port = getAlgoPort($algo);
 
-    if ($defaultalgo == $algo) echo "<tr style='cursor: pointer; background-color: #d9d9d9;' onclick='javascript:select_algo(\"$algo\")'>";
-    else echo "<tr style='cursor: pointer' class='ssrow' onclick='javascript:select_algo(\"$algo\")'>";
-    echo "<td style='font-size: 110%; background-color: #41464b;'><b>$algo</b></td>";
-    echo "<td align=center style='font-size: .8em; background-color: #41464b;'></td>";
-    echo "<td align=center style='font-size: .8em; background-color: #41464b;'></td>";
-    echo "<td align=center style='font-size: .8em; background-color: #41464b;'></td>";
-    echo "<td align=center style='font-size: .8em; background-color: #41464b;'></td>";
-    echo '<td align="center" style="font-size: .8em; background-color: #41464b;"></td>';
-    echo '<td align="center" style="font-size: .8em; background-color: #41464b;"></td>';
-    echo "<td align=center style='font-size: .8em; background-color: #41464b;'></td>";
-    echo "<td align=center style='font-size: .8em; background-color: #41464b;'></td>";
-    if ($algo == $best_algo) echo '<td class="estimate" align="center" style="font-size: .8em; background-color: #41464b;" title="normalized ' . $norm . '"><b>' . $price . '*</b></td>';
-    else if ($norm > 0) echo '<td class="estimate" align="center" style="font-size: .8em; background-color: #41464b;" title="normalized ' . $norm . '">' . $price . '</td>';
-    else echo '<td class="estimate" align="center" style="font-size: .8em; background-color: #41464b;"></td>';
-    echo '<td class="estimate" align="center" style="font-size: .8em; background-color: #41464b;"></td>';
-    if ($algo == $best_algo) echo '<td align="center" style="font-size: .8em; background-color: #41464b;" data="' . $btcmhday1 . '"><b>' . $btcmhday1 . '*</b></td>';
-    else echo '<td align="center" style="font-size: .8em; background-color: #41464b;" data="' . $btcmhday1 . '">' . $btcmhday1 . '</td>';
+    if ($defaultalgo == $algo) echo "<tr style='cursor: pointer;' class='ui-state-focus' onclick='javascript:select_algo(\"$algo\")'>";
+    else echo "<tr style='cursor: pointer' class='ui-widget-header ui-state-focus' onclick='javascript:select_algo(\"$algo\")'>";
+// else echo "<tr style='cursor: pointer' class='ssrow' onclick='javascript:select_algo(\"$algo\")'>";
+    echo "<td style='font-size: 110%;'><b>$algo</b></td>";
+    echo "<td align=center></td>";
+    echo "<td align=center></td>";
+    echo "<td align=center></td>";
+    echo "<td align=center></td>";
+    echo '<td align="center"></td>';
+    echo '<td align="center"></td>';
+    echo "<td align=center></td>";
+    echo "<td align=center></td>";
+    if ($algo == $best_algo) echo '<td class="estimate" align="center" style="font-size: .8em; " title="normalized' . $norm . '"><b>' . $price . '*</b></td>';
+    else if ($norm > 0) echo '<td class="estimate" align="center" title="normalized ' . $norm . '">' . $price . '</td>';
+    else echo '<td class="estimate" align="center"></td>';
+    echo '<td class="estimate" align="center" style="font-size: .8em;;"></td>';
+    if ($algo == $best_algo) echo '<td align="center" data="' . $btcmhday1 . '"><b>' . $btcmhday1 . '*</b></td>';
+    else echo '<td align="center" data="' . $btcmhday1 . '">' . $btcmhday1 . '</td>';
     echo "</tr>";
     if ($coins > 0)
     {
@@ -151,7 +152,7 @@ foreach ($algos as $item)
         {
             $name = substr($coin->name, 0, 18);
             $symbol = $coin->getOfficialSymbol();
-            echo "<td align='left' valign='top' style='font-size: .8em;'><img width='10' src='" . $coin->image . "'>  <b>$name</b> </td>";
+            echo "<td align='left' valign='top'><img width='10' src='" . $coin->image . "'>  <b>$name</b> </td>";
             $port_count = getdbocount('db_stratums', "algo=:algo and symbol=:symbol", array(
                 ':algo' => $algo,
                 ':symbol' => $symbol
@@ -159,22 +160,23 @@ foreach ($algos as $item)
             $port_db = getdbosql('db_stratums', "algo=:algo and symbol=:symbol", array(
                 ':algo' => $algo,
                 ':symbol' => $symbol
+
             ));
 
             $dontsell = $coin->dontsell;
-            if ($dontsell == 1) echo "<td align='center' valign='top' style='font-size: .8em;'><img width=13 src='/images/cancel.png'></td>";
-            else echo "<td align='center' valign='top' style='font-size: .8em;'><img width=13 src='/images/ok.png'></td>";
+            if ($dontsell == 1) echo "<td align='center' valign='top'><img width=13 src='/images/cancel.png'></td>";
+            else echo "<td align='center' valign='top'><img width=13 src='/images/ok.png'></td>";
 
             if ($port_count == 1)
-                             echo "<td align='center' style='font-size: .8em;'><b>" . $port_db->port . "</b></td>";
+                             echo "<td align='center'><b>" . $port_db->port . "</b></td>";
             else 
-			     echo "<td align='center' style='font-size: .8em;'><b>$port</b></td>";
+			     echo "<td align='center'><b>$port</b></td>";
 
-                             echo "<td align='center' style='font-size: .8em;'>$symbol</td>";
+                             echo "<td align='center'>$symbol</td>";
 
-	    if($port_count != 0)
-	    {
-            $workers_coins = getdbocount('db_workers', "algo=:algo and pid=:pid and not password like '%m=solo%'", array(
+	if($port_count != "0")
+	{
+      	    $workers_coins = getdbocount('db_workers', "algo=:algo and pid=:pid and not password like '%m=solo%'", array(
                 ':algo' => $algo,
                 ':pid' => $port_db->pid
             ));
@@ -182,16 +184,16 @@ foreach ($algos as $item)
                 ':algo' => $algo,
                 ':pid' => $port_db->pid
             ));
-	    }
-		
+}
+
 	   if ($port_count == 1) 
-		echo "<td align='center' style='font-size: .8em;'>$workers_coins / $solo_workers_coins</td>";
+		echo "<td align='center'>$workers_coins / $solo_workers_coins</td>";
 	   else
-		echo "<td align='center' style='font-size: .8em;'>$workers / $solo_workers</td>";
+		echo "<td align='center'>$workers / $solo_workers</td>";
 
             $pool_hash = yaamp_coin_rate($coin->id);
             $pool_hash_sfx = $pool_hash ? Itoa2($pool_hash) . 'h/s' : '';
-            echo "<td align='center' style='font-size: .8em;'>$pool_hash_sfx</td>";
+            echo "<td align='center'>$pool_hash_sfx</td>";
 	    $pool_hash_sfx = $pool_hash ? Itoa2($pool_hash) . 'h/s' : '';
 
             $min_ttf = $coin->network_ttf > 0 ? min($coin->actual_ttf, $coin->network_ttf) : $coin->actual_ttf;
@@ -222,11 +224,11 @@ foreach ($algos as $item)
 		}
             }
             $network_hash = $network_hash ? Itoa2($network_hash) . 'h/s' : '';
-            echo "<td align='center' style='font-size: .8em;' data='$pool_hash'>$network_hash</td>";
-            echo "<td align='center' style='font-size: .8em;'>{$fees}% / {$fees_solo}%</td>";
+            echo "<td align='center' data='$pool_hash'>$network_hash</td>";
+            echo "<td align='center'>{$fees}% / {$fees_solo}%</td>";
             $btcmhd = yaamp_profitability($coin);
             $btcmhd = mbitcoinvaluetoa($btcmhd);
-            echo "<td align='center' style='font-size: .8em;'>$btcmhd</td>";
+            echo "<td align='center'>$btcmhd</td>";
             echo "</tr>";
         }
     }
@@ -238,13 +240,13 @@ foreach ($algos as $item)
 
 echo "</tbody>";
 
-if ($defaultalgo == 'all') echo "<tr style='cursor: pointer; background-color: #41464b;' onclick='javascript:select_algo(\"all\")'>";
+if ($defaultalgo == 'all') echo "<tr style='cursor: pointer;' onclick='javascript:select_algo(\"all\")'>";
 else echo "<tr style='cursor: pointer' class='ssrow' onclick='javascript:select_algo(\"all\")'>";
 echo "<td><b>all</b></td>";
 echo "<td></td>";
 echo "<td></td>";
-echo "<td align=center style='font-size: .8em;'>$total_coins</td>";
-echo "<td align=center style='font-size: .8em;'>$total_miners / $total_solo</td>";
+echo "<td align=center>$total_coins</td>";
+echo "<td align=center>$total_miners / $total_solo</td>";
 echo "<td></td>";
 echo "<td></td>";
 echo '<td class="estimate"></td>';
@@ -253,7 +255,7 @@ echo "<td></td>";
 echo "<td></td>";
 echo "</tr>";
 echo "</table>";
-echo '<p style="font-size: .8em;">&nbsp;* values in mBTC/MH/day, per GH for sha & blake algos</p>';
+echo '<p>&nbsp;* values in mBTC/MH/day, per GH for sha & blake algos</p>';
 echo "</div></div><br />";
 ?>
 

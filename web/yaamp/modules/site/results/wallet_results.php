@@ -1,9 +1,9 @@
 <?php
 function WriteBoxHeader($title)
 {
-    echo "<div class='main-left-box'>";
-    echo "<div class='main-left-title'>$title</div>";
-    echo "<div class='main-left-inner'>";
+echo "<div class='ui-widget'>";
+echo "<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>$title</div>";
+echo "<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>";
 }
 
 $mining = getdbosql('db_mining');
@@ -85,10 +85,10 @@ if ($show_details)
             echo "<td width=18><img width=16 src='$coin->image'></td>";
             echo "<td><b><a href='/site/block?id=$coin->id' title='$coin->version'>$name</a></b><span style='font-size: .8em'> ($coin->algo)</span></td>";
 
-            echo "<td align=right style='font-size: .8em;'>$unconfirmed</td>";
-            echo "<td align=right style='font-size: .8em;'>$confirmed</td>";
-            echo "<td align=right style='font-size: .8em;'>$total</td>";
-            echo "<td align=right style='font-size: .8em;'>$value $refcoin->symbol</td>";
+            echo "<td align=right>$unconfirmed</td>";
+            echo "<td align=right>$confirmed</td>";
+            echo "<td align=right>$total</td>";
+            echo "<td align=right>$value $refcoin->symbol</td>";
 
             echo "</tr>";
         }
@@ -118,7 +118,7 @@ if (!$show_details && $total_unsold > 0)
 {
     echo '
 	<tr><td colspan="6" align="right">
-		<label style="font-size: .8em;">
+		<label>
 			<input type="checkbox" onclick="javascript:main_wallet_refresh_details()">
 			Show Details
 		</label>
@@ -133,12 +133,12 @@ echo '<td valign="top"><b>';
 if ($refcoin->symbol == 'BTC') echo $refcoin->name;
 else echo '<a href="/site/block?id=' . $refcoin->id . '">' . $refcoin->name . '</a>';
 
-echo '<br/><span style="font-size: .8em;"">(total pending)</span></b></td>';
+echo '<br/><span">(total pending)</span></b></td>';
 
-echo '<td valign="top" align="right" style="font-size: .8em;">' . $unconfirmed . '</td>';
-echo '<td valign="top" align="right" style="font-size: .8em;">' . $confirmed . '</td>';
-echo '<td valign="top" align="right" style="font-size: .8em;"></td>';
-echo '<td valign="top" align="right" style="font-size: .8em;">' . $total_unsold . ' ' . $refcoin->symbol . '</td>';
+echo '<td valign="top" align="right">' . $unconfirmed . '</td>';
+echo '<td valign="top" align="right">' . $confirmed . '</td>';
+echo '<td valign="top" align="right"></td>';
+echo '<td valign="top" align="right">' . $total_unsold . ' ' . $refcoin->symbol . '</td>';
 
 echo "</tr>";
 
@@ -160,8 +160,8 @@ $balance = bitcoinvaluetoa($user->balance);
 echo "<tr class='ssrow' style='border-top: 1px solid #eee;'>";
 echo "<td><img width=16 src='$refcoin->image'></td>";
 echo "<td colspan=3><b>Balance</b></td>";
-echo "<td align=right style='font-size: .8em;'><b></b></td>";
-echo "<td align=right style='font-size: .9em;'><b>$balance $refcoin->symbol</b></td>";
+echo "<td align=right><b></b></td>";
+echo "<td align=right><b>$balance $refcoin->symbol</b></td>";
 echo "</tr>";
 
 ////////////////////////////////////////////////////////////////////////////
@@ -170,8 +170,8 @@ $total_unpaid = bitcoinvaluetoa($balance + $total_unsold);
 echo "<tr class='ssrow' style='border-top: 3px solid #eee;'>";
 echo "<td><img width=16 src='$refcoin->image'></td>";
 echo "<td colspan=3><b>Total Unpaid</b></td>";
-echo "<td align=right style='font-size: .8em;'></td>";
-echo "<td align=right style='font-size: .9em;'>$total_unpaid $refcoin->symbol</td>";
+echo "<td align=right></td>";
+echo "<td align=right>$total_unpaid $refcoin->symbol</td>";
 echo "</tr>";
 
 ////////////////////////////////////////////////////////////////////////////
@@ -184,8 +184,8 @@ $total_paid = bitcoinvaluetoa($total_paid);
 echo "<tr class='ssrow' style='border-top: 1px solid #eee;'>";
 echo "<td><img width=16 src='$refcoin->image'></td>";
 echo "<td colspan=3><b>Total Paid</b></td>";
-echo "<td align=right style='font-size: .8em;'></td>";
-echo "<td align=right style='font-size: .9em;'><a href='javascript:main_wallet_tx()'>$total_paid $refcoin->symbol</a></td>";
+echo "<td align=right></td>";
+echo "<td align=right><a href='javascript:main_wallet_tx()'>$total_paid $refcoin->symbol</a></td>";
 echo "</tr>";
 
 ////////////////////////////////////////////////////////////////////////////
@@ -195,8 +195,8 @@ $total_earned = bitcoinvaluetoa($total_unsold + $balance + $total_paid);
 echo "<tr class='ssrow' style='border-top: 3px solid #eee;'>";
 echo "<td><img width=16 src='$refcoin->image'></td>";
 echo "<td colspan=3><b>Total Earned</b></td>";
-echo "<td align=right style='font-size: .8em;'></td>";
-echo "<td align=right style='font-size: .9em;'>$total_earned $refcoin->symbol</td>";
+echo "<td align=right></td>";
+echo "<td align=right>$total_earned $refcoin->symbol</td>";
 echo "</tr>";
 
 echo "</table>";

@@ -15,9 +15,9 @@ body { margin: 4px; }
 pre { margin: 0 4px; }
 </style>
 
-<div class="main-left-box">
-<div class="main-left-title">{$this->pageTitle}</div>
-<div class="main-left-inner">
+<div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">{$this->pageTitle}</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 end;
 
 

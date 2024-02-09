@@ -2,9 +2,9 @@
 
 function WriteBoxHeader($title)
 {
-    echo "<div class='main-left-box'>";
-    echo "<div class='main-left-title'>$title</div>";
-    echo "<div class='main-left-inner'>";
+echo "<div class='ui-widget'>";
+echo "<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>$title</div>";
+echo "<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>";
 }
 
 $algo = user()->getState('yaamp-algo');

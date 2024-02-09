@@ -13,6 +13,9 @@ echo <<<end
 table.dataGrid { max-width: 99.5%; }
 table.dataGrid a.red { color: darkred; }
 </style>
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Botnets</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 end;
 
 
@@ -28,6 +31,8 @@ showTableSorter('maintable', "{
 }");
 
 echo <<<end
+
+<table>
 <thead>
 <tr>
 <th data-sorter="" width="20"></th>
@@ -101,4 +106,4 @@ if (empty($botnets))
 }
 echo '</tfoot>';
 
-echo '</table><br>';
+echo '</table></div></div><br>';

@@ -1,7 +1,7 @@
 <?php
 echo getAdminSideBarLinks();
 
-echo " - <a href='/site/coin?id={$coin->id}'>{$coin->name}</a><br/>";
+echo "<button id=button class='ui-state-default ui-corner-all' style='padding: 5px 15px 5px 15px'><a href='/site/coin?id={$coin->id}'>{$coin->name}</a></button>";
 
 $this->widget('UniForm');
 
@@ -59,10 +59,18 @@ echo CUFHtml::closeCtrlHolder();
 
 echo CUFHtml::openActiveCtrlHolder($coin, 'algo');
 echo CUFHtml::activeLabelEx($coin, 'algo');
-echo CUFHtml::activeTextField($coin, 'algo', array(
-    'maxlength' => 64,
-    'style' => 'width: 120px;'
+$ListAlgos = array();
+$db_algos = getdbolist('db_algos');
+foreach ($db_algos as $algo) {
+	$NameAlgo = $algo->name;
+	$ListAlgos[$NameAlgo] = $NameAlgo;
+}
+echo CUFHtml::dropDownList('db_coins[algo]', $coin->algo, $ListAlgos, array(
+	'style' => 'border: 1px solid #dfdfdf; height: 26px; width:135px',
+	'class' => 'textInput tweetnews-input'
 ));
+$coin_algo = ($coin->algo)? '<span>'.$coin->algo.'</span>' : '<span style="color: red;">None</span>';
+echo '<label style="padding-left: 20px;" for="algo">Algo Selected: '.$coin_algo.'</label>';
 echo '<p class="formHint2">Required all lower case</p>';
 echo CUFHtml::closeCtrlHolder();
 

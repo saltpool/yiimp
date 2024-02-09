@@ -14,6 +14,9 @@ JavascriptFile("/yaamp/ui/js/jquery.metadata.js");
 JavascriptFile("/yaamp/ui/js/jquery.tablesorter.widgets.js");
 
 echo <<<end
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Peers</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 <style type="text/css">
 td.red { color: darkred; }
 table.dataGrid a.red { color: darkred; }
@@ -23,8 +26,10 @@ div.form { text-align: right; height: 30px; width: 350px; float: right; margin-t
 
 <div class="form">
 <form action="/site/peerAdd?id={$coin->id}" method="post" style="padding: 8px;">
-<input type="text" name="node" class="main-text-input" placeholder="addr[:port]" autocomplete="off" style="width: 150px; margin-right: 4px;">
-<input type="submit" value="Add node" class="main-submit-button" >
+<!--input type="text" name="node" class="main-text-input" placeholder="addr[:port]" autocomplete="off" style="width: 150px; margin-right: 4px;"-->
+<input type="text" name="node" class="main-texct-input ui-corner-all" placeholder="addr[:port]" autocomplete="off" style="width: 150px; margin-right: 4px;">
+<!--input type="submit" value="Add node" class="main-submit-button"-->
+<input type="submit" value="Add node" class="ui-state-active ui-corner-all" >
 </form>
 </div>
 end;
@@ -50,6 +55,7 @@ showTableSorter('maintable', "{
 }");
 
 echo <<<end
+<table>
 <thead>
 <tr>
 <th>Address</th>
@@ -116,12 +122,16 @@ if (!empty($list)) foreach ($list as $peer)
     echo '</tr>';
 }
 
-echo '</tbody></table><br>';
+echo '</tbody></table></div></div><br>';
+
+echo "<div class='ui-widget'>";
+echo "<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>Addnodes</div>";
+echo "<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>";
 
 echo '<b>Local version: </b>' . formatWalletVersion($coin) . ' ';
 echo '<b>Latest : </b>' . $version;
 
 echo '<pre>';
 echo implode("\n", $addnode);
-echo '</pre>';
+echo '</pre></div></div>';
 //echo json_encode($list);

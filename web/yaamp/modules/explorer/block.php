@@ -123,6 +123,11 @@ $txcount = count($block['tx']);
 $version = dechex($block['version']);
 $nonce = $block['nonce'];
 
+echo "<br><br>";
+echo "<div class='ui-widget'>";
+echo '<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">' . $coin->name . '</div>';
+echo "<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>";
+
 echo '<table class="dataGrid1">';
 echo '<tr><td width=100></td><td></td></tr>';
 
@@ -161,10 +166,13 @@ echo '<tr><td>Merkle Root:</td><td><span class="monospace">' . $block['merkleroo
 
 echo '<tr><td>Transactions:</td><td>' . $txcount . '</td></tr>';
 
-echo "</table><br>";
-
+echo "</table></div</div></div><br>";
 ////////////////////////////////////////////////////////////////////////////////
 echo <<<end
+
+<div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Transaction Detail</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 
 <table class="dataGrid">
 <thead>
@@ -312,6 +320,8 @@ if ($coin->rpcencoding == 'DCR' && isset($block['stx']))
 }
 
 echo '</table>';
+echo '</div></div></div>';
+
 
 $actionUrl = $coin->visible ? '/explorer/' . $coin->symbol : '/explorer/search?id=' . $coin->id;
 

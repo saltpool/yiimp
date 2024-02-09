@@ -16,9 +16,9 @@ a.low { color: 4ca6b3; font-weight: bold; }
 </style>
 
 <br/>
-<div class="main-left-box">
-<div class="main-left-title">Block Explorer</div>
-<div class="main-left-inner">
+<div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Block Explorer</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 end;
 
 
@@ -120,7 +120,7 @@ foreach ($list as $coin)
 echo <<<end
 </tbody>
 </table>
-<p style="font-size: .8em;">
+<p>
 	&nbsp;* Unified difficulty based on the hash target (might be different than wallet one)<br/>
 </p>
 </div></div>

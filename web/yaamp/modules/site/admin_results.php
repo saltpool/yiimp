@@ -20,8 +20,11 @@ td.status span.progress { font-size: .8em; letter-spacing: 0; }
 td.status span.hidden { visibility: hidden; }
 span.eov { opacity: 0.5; }
 </style>
-end;
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Administration</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 
+end;
 showTableSorter('maintable', '{
 tableClass: "dataGrid",
 widgets: ["zebra","filter","Storage","saveSort"],
@@ -35,6 +38,7 @@ widgetOptions: {
 }}');
 
 echo <<<end
+<table>
 <thead>
 <tr>
 <th data-sorter="" width="30"></th>
@@ -206,7 +210,7 @@ echo '</tbody>';
 
 echo '<tr><th colspan="12">' . $total . ' wallets</th></tr>';
 
-echo '</table>';
+echo '</table></div></div>';
 
 //////////////////////////////////////////
 

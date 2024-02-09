@@ -24,7 +24,11 @@ $symbol = $coin->symbol;
 if (!empty($coin->symbol2))
     $symbol = $coin->symbol2;
 
-echo "<br/>";
+echo "<br>";
+echo "<div class='ui-widget'>";
+echo "<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>" . $coin->name . " (" . $coin->symbol  . ")</div>";
+echo "<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>";
+
 if (YAAMP_ALLOW_EXCHANGE) {
     $reserved2 = bitcoinvaluetoa(dboscalar("SELECT SUM(amount*price) FROM earnings
         WHERE status!=2 AND userid IN (SELECT id FROM accounts WHERE coinid={$coin->id})"));
@@ -282,6 +286,7 @@ $maxrows = min($maxrows, 2500);
 
 echo <<<end
 <div id="transactions">
+
 <table class="dataGrid">
 <thead class="">
 <tr>
@@ -480,12 +485,17 @@ $url     = '/site/coin?id=' . $coin->id . '&since=' . (time() - 31 * 24 * 3600) 
 $moreurl = CHtml::link('Click here to show more transactions...', $url);
 
 echo '<div class="loadfooter" style="margin-top: 4px;">' . $moreurl . '</div>';
-echo '</div>';
+echo '</div></div>';
 
 //////////////////////////////////////////////////////////////////////////////////////
 
 echo <<<end
 <div id="sums">
+
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Botnets</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
+
 <table class="dataGrid">
 <thead class="">
 <tr>
@@ -534,4 +544,4 @@ if (empty($sums)) {
     echo '</tr>';
 }
 
-echo '</tbody></table></div>';
+echo '</tbody></table></div></div>';

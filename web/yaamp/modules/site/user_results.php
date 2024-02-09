@@ -22,6 +22,9 @@ echo <<<end
 .red { color: darkred; }
 tr.ssrow.filtered { display: none; }
 </style>
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Users</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 end;
 
 
@@ -43,6 +46,7 @@ showTableSorter('maintable', "{
 }");
 
 echo <<<end
+<table>
 <thead>
 <tr>
 <th data-sorter="numeric">UID</th>
@@ -184,6 +188,6 @@ if ($coin)
     echo '</tr>';
 }
 
-echo "</table>";
+echo "</table></div></div>";
 
 //echo "<p><a href='/site/bonususers'>1% bonus</a></p>";

@@ -13,6 +13,9 @@ table.totals td { text-align: right; }
 table.totals tr.red td { color: darkred; }
 .page .footer { width: auto; }
 </style>
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Earnings</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 end;
 
 
@@ -161,7 +164,7 @@ if ($coin_id)
     $exchange = $total - $totalimmat;
     echo '<tr><th title="Available = (Balance - Cleared - in exchange)">Available</th>';
     echo '<td>' . bitcoinvaluetoa($coin->balance - $exchange - $cleared) . " $symbol</td></tr>";
-    echo '</tr></table>';
+    echo '</tr></table></div></div>';
 
     echo '</div>';
 }

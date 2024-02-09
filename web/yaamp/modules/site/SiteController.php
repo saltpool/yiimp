@@ -8,7 +8,7 @@ class SiteController extends CommonController
     // Security Note: You can rename this action as you
     // want, to customize the admin entrance url...
     //
-    public function actionAdminRights()
+    public function actionAdminPanel()
     {
         $client_ip = arraySafeVal($_SERVER, 'REMOTE_ADDR');
         $valid     = isAdminIP($client_ip);
@@ -89,7 +89,6 @@ class SiteController extends CommonController
             'coin' => $coin
         ));
     }
-
     /////////////////////////////////////////////////
 
     public function actionPeers()
@@ -821,6 +820,25 @@ class SiteController extends CommonController
     }
 
     /////////////////////////////////////////////////
+
+    public function actionThemes()
+    {
+        if (!$this->admin)
+            return;
+        $this->render('themes');
+
+// 	$themes = getdbo('db_themes', getiparam('id'));
+//       $themes  = getdbo('db_themes', getiparam('id'));
+  //      $themename = $themes->name;
+
+    //   $this->render('themes');
+
+//        if (!$themes) {
+  //          $this->goback();
+    //    }
+   }
+
+   //////////////////////////////////////////////////
 
     public function actionCommon()
     {

@@ -8,6 +8,10 @@ $db_blocks = getdbolist('db_blocks', "coin_id=:id order by time desc limit 250",
 ));
 $coin = getdbo('db_coins', $id);
 
+echo "<br><div class='ui-widget'>";
+echo "<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>Blocks</div>";
+echo "<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>";
+
 showTableSorter('maintable', "{
 	tableClass: 'dataGrid',
 	headers: {
@@ -40,6 +44,7 @@ span.block2.solo     { color: white;  background-color: #4ca6b3 !important; }
 span.block2.shared   { color: white;  background-color: #4ca6b3 !important; }
 </style>
 
+<table>
 <thead>
 <tr>
 <th width="20"></th>
@@ -144,4 +149,4 @@ foreach ($db_blocks as $db_block)
     echo "</tr>";
 }
 
-echo "</tbody></table>";
+echo "</tbody></table></div></div>";

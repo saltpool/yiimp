@@ -8,6 +8,9 @@ echo <<<end
 <style type="text/css">
 tr.ssrow.filtered { display: none; }
 </style>
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Empty Markets</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 end;
 
 
@@ -23,7 +26,7 @@ showTableSorter('maintable', "{
 	}
 }");
 
-echo "<thead>";
+echo "<table><thead>";
 echo "<tr>";
 echo "<th></th>";
 echo "<th>Coin</th>";
@@ -59,7 +62,7 @@ if (!empty($list)) foreach ($list as $item)
     echo "</tr>";
 }
 
-echo "</tbody></table>";
+echo "</tbody></table></div></div>";
 
 echo '<br><br><br><br><br><br><br><br><br><br>';
 

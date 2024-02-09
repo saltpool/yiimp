@@ -6,6 +6,10 @@
 
 /* Layout helpers
 ----------------------------------*/
+body {
+	background: #f9f9f9;
+}
+
 .ui-helper-hidden {
 	display: none;
 }

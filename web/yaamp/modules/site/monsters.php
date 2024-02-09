@@ -9,6 +9,9 @@ echo <<<end
 <style type="text/css">
 tr.ssrow.filtered { display: none; }
 </style>
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Big Miners</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 end;
 
 showTableSorter('maintable', "{
@@ -129,4 +132,4 @@ $list = getdbolist('db_accounts', "is_locked");
 foreach ($list as $user)
     showUser($user->id, 'locked');
 
-echo "</tbody></table>";
+echo "</tbody></table></div></div>";

@@ -1,6 +1,8 @@
 <?php
 
-echo "<a href='/coin'>Back to coin list</a>";
+echo "<br><div class='ui-widget' style='width: 75%'>";
+echo "<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>Update Coin Links</div>";
+echo "<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>";
 
 $this->widget('UniForm');
 
@@ -69,7 +71,7 @@ echo CUFHtml::closeTag('fieldset');
 showSubmitButton($update? 'Save': 'Create');
 echo CUFHtml::endForm();
 
-echo "<br><br><br><br><br>";
-echo "<br><br><br><br><br>";
+echo "<button class='ui-state-default ui-corner-all' style='padding: 5px 15px 5px 15px'><a href='/coin'>Back to coin list</a><button>";
 
+echo "</div></div>";
 

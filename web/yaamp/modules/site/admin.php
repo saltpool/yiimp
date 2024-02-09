@@ -5,7 +5,7 @@ JavascriptFile("/yaamp/ui/js/jquery.tablesorter.widgets.js");
 
 echo getAdminSideBarLinks();
 
-echo '&nbsp;<a href="/site/emptymarkets">Empty Markets</a>&nbsp;';
+echo '<button id=button class="ui-state-active ui-corner-all" style="padding: 5px 15px 5px 15px"><a href="/site/emptymarkets">Empty Markets</a></button>';
 
 $server = getparam('server');
 
@@ -34,7 +34,7 @@ echo <<<end
 <br><br><br><br><br><br><br><br><br><br>
 </div>
 
-<br><a href='/site/create'><img width=16 src=''><b>CREATE COIN</b></a>
+<br><button id=button class='ui-state-default ui-corner-all' style='padding: 5px 15px 5px 15px'><a href='/site/create'><img width=16 src=''>Create Coin</button></a>
 <!-- br><a href='/site/updateprice'><img width=16 src=''><b>UPDATE PRICE</b></a -->
 <!-- br><a href='/site/dopayments'><img width=16 src=''><b>DO PAYMENTS</b></a -->
 

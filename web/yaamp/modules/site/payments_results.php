@@ -15,6 +15,9 @@ table.totals td { text-align: right; }
 table.totals tr.red td { color: darkred; }
 .page .footer { width: auto; }
 </style>
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Payments</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 end;
 
 $coin_id = getiparam('id');
@@ -141,6 +144,6 @@ if ($coin_id) {
         echo '<tr class="red"><th>Failed</th><td>' . bitcoinvaluetoa($totalfailed) . " $symbol</td></tr>";
         echo '<tr><td colspan="2">' . '<a href="/site/cancelUsersPayment?id=' . $coin_id . '" title="Add to balance all failed payouts">Reset all failed</a></td></tr>';
     }
-    echo '</tr></table>';
+    echo '</tr></table></div></div>';
     echo '</div>';
 }

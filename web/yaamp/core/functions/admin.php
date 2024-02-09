@@ -5,14 +5,14 @@
 function getAdminSideBarLinks()
 {
     $links = <<<end
-<a href="/site/exchange">Exchanges</a>&nbsp;
-<a href="/site/botnets">Botnets</a>&nbsp;
-<a href="/site/user">Users</a>&nbsp;
-<a href="/site/worker">Workers</a>&nbsp;
-<a href="/site/version">Version</a>&nbsp;
-<a href="/site/earning">Earnings</a>&nbsp;
-<a href="/site/payments">Payments</a>&nbsp;
-<a href="/site/monsters">Big Miners</a>&nbsp;
+<button class='ui-state-active ui-corner-all' style='padding: 5px 10px 5px 10px'><a href="/site/exchange">Exchanges</a></button>
+<button class='ui-state-active ui-corner-all' style='padding: 5px 10px 5px 10px'><a href="/site/botnets">Botnets</a></button>
+<button class='ui-state-active ui-corner-all' style='padding: 5px 10px 5px 10px'><a href="/site/user">Users</a></button>
+<button class='ui-state-active ui-corner-all' style='padding: 5px 10px 5px 10px'><a href="/site/worker">Workers</a></button>
+<button class='ui-state-active ui-corner-all' style='padding: 5px 10px 5px 10px'><a href="/site/version">Version</a></button>
+<button class='ui-state-active ui-corner-all' style='padding: 5px 10px 5px 10px'><a href="/site/earning">Earnings</a></button>
+<button class='ui-state-active ui-corner-all' style='padding: 5px 10px 5px 10px'><a href="/site/payments">Payments</a></button>
+<button class='ui-state-active ui-corner-all' style='padding: 5px 10px 5px 10px'><a href="/site/monsters">Big Miners</a></button>
 end;
     return $links;
 }
@@ -20,24 +20,24 @@ end;
 // shared by wallet "tabs", to move in another php file...
 function getAdminWalletLinks($coin, $info = NULL, $src = 'wallet')
 {
-    $html = CHtml::link("<b>COIN PROPERTIES</b>", '/site/update?id=' . $coin->id);
+    $html = CHtml::link("<button class='ui-state-default ui-corner-all' style='padding: 5px 10px 5px 10px; cursor: pointer;'>COIN PROPERTIES</button>", '/site/update?id=' . $coin->id);
     if ($info) {
-        $html .= ' || ' . $coin->createExplorerLink("<b>EXPLORER</b>");
-        $html .= ' || ' . CHtml::link("<b>PEERS</b>", '/site/peers?id=' . $coin->id);
+        $html .= ' || ' . $coin->createExplorerLink("<button class='ui-state-default ui-corner-all' style='padding: 5px 10px 5px 10px; cursor: pointer;'>EXPLORER</button>");
+        $html .= ' || ' . CHtml::link("<button class='ui-state-default ui-corner-all' style='padding: 5px 10px 5px 10px; cursor: pointer;'>PEER</button>", '/site/peers?id=' . $coin->id);
         if (YAAMP_ADMIN_WEBCONSOLE)
-            $html .= ' || ' . CHtml::link("<b>CONSOLE</b>", '/site/console?id=' . $coin->id);
-        $html .= ' || ' . CHtml::link("<b>TRIGGERS</b>", '/site/triggers?id=' . $coin->id);
+            $html .= ' || ' . CHtml::link("<button class='ui-state-default ui-corner-all' style='padding: 5px 10px 5px 10px; cursor: pointer;'>CONSOLE</button>", '/site/console?id=' . $coin->id);
+        $html .= ' || ' . CHtml::link("<button class='ui-state-default ui-corner-all' style='padding: 5px 10px 5px 10px; cursor: pointer;'>TRIGGERS</button>", '/site/triggers?id=' . $coin->id);
         if ($src != 'wallet')
-            $html .= ' || ' . CHtml::link("<b>{$coin->symbol}</b>", '/site/coin?id=' . $coin->id);
+            $html .= ' || ' . CHtml::link("<button class='ui-state-active ui-corner-all' style='padding: 5px 10px 5px 10px; cursor: pointer;'>{$coin->symbol}</button>", '/site/coin?id=' . $coin->id);
     }
 
     if (!$info && $coin->enable)
-        $html .= '<br/>' . CHtml::link("<b>STOP COIND</b>", '/site/stopcoin?id=' . $coin->id);
+        $html .= ' || ' . CHtml::link("<button class='ui-state-active ui-corner-all' style='padding: 5px 10px 5px 10px; cursor: pointer;'>STOP COIND</button>", '/site/stopcoin?id=' . $coin->id);
 
     if ($coin->auto_ready)
-        $html .= '<br/>' . CHtml::link("<b>UNSET AUTO</b>", '/site/unsetauto?id=' . $coin->id);
+        $html .= ' || ' . CHtml::link("<button class='ui-state-active ui-corner-all' style='padding: 5px 10px 5px 10px; cursor: pointer;'>UNSET AUTO</button>", '/site/unsetauto?id=' . $coin->id);
     else
-        $html .= '<br/>' . CHtml::link("<b>SET AUTO</b>", '/site/setauto?id=' . $coin->id);
+        $html .= ' || ' . CHtml::link("<button class='ui-state-active ui-corner-all' style='padding: 5px 10px 5px 10px; cursor: pointer;'>SET AUTO</button>", '/site/setauto?id=' . $coin->id);
 
     $html .= '<br/>';
 

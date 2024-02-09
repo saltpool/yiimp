@@ -3,9 +3,9 @@ $user = getuserparam(getparam('address'));
 if (!$user) return;
 
 echo <<<end
-<div class="main-left-box">
-<div class="main-left-title">Last 24 Hours Hashrate: $user->username</div>
-<div class="main-left-inner"><br>
+<div class="ui-widget">
+<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>Last 24 Hours Hashrate: $user->username</div>
+<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'><br>
 end;
 
 

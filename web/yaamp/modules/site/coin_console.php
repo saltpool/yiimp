@@ -101,6 +101,10 @@ function main_json_links() {
 }
 </script>
 
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Daemon console</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
+
 <style type="text/css">
 div.form { margin-right: 8px; }
 div.rpcerror, div.terminal {
@@ -145,7 +149,7 @@ if (!empty($remote->error) && $remote->error != $result) {
 
 echo '<div class="terminal">';
 echo is_string($result) ? htmlentities($result) : colorizeJson(htmlentities(json_encode($result, 128)));
-echo '</div>';
+echo '</div></div></div>';
 
 JavascriptReady("main_resize(); $(window).resize(main_resize); $('.main-text-input:first').focus();");
 

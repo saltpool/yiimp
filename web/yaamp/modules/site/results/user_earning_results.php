@@ -69,12 +69,12 @@ foreach ($earnings as $earning)
 
         echo '<tr class="ssrow">';
         echo '<td width="18"><img width="16" src="/images/btc.png"></td>';
-        echo '<td><b>Rental</b><span style="font-size: .8em;"> (' . $block->algo . ')</span></td>';
-        echo '<td align="right" style="font-size: .8em;"><b>' . $reward . ' BTC</b></td>';
-        echo '<td align="right" style="font-size: .8em;">' . $percent . '%</td>';
-        echo '<td align="right" style="font-size: .8em;">' . $value . '</td>';
-        echo '<td align="right" style="font-size: .8em;">' . $d . '&nbsp;ago</td>';
-        echo '<td align="right" style="font-size: .8em;"><span class="block cleared">Cleared</span></td>';
+        echo '<td><b>Rental</b><span> (' . $block->algo . ')</span></td>';
+        echo '<td align="right"><b>' . $reward . ' BTC</b></td>';
+        echo '<td align="right">' . $percent . '%</td>';
+        echo '<td align="right">' . $value . '</td>';
+        echo '<td align="right">' . $d . '&nbsp;ago</td>';
+        echo '<td align="right"><span class="block cleared">Cleared</span></td>';
         echo '</tr>';
 
         continue;
@@ -90,13 +90,13 @@ foreach ($earnings as $earning)
     ));
     echo '<tr class="ssrow">';
     echo '<td width="18"><img width="16" src="' . $coin->image . '"></td>';
-    echo '<td><b>' . $blockUrl . '</b><span style="font-size: .8em;"> (' . $coin->algo . ')</span></td>';
-    echo '<td align="right" style="font-size: .8em;">'.$height.'</td>';
-    echo '<td align="right" style="font-size: .8em;"><b>' . $reward . ' ' . $coin->symbol_show . '</b></td>';
-    echo '<td align="right" style="font-size: .8em;">' . $percent . '%</td>';
-    echo '<td align="right" style="font-size: .8em;">' . $value . '</td>';
-    echo '<td align="right" style="font-size: .8em;">' . $d . '&nbsp;ago</td>';
-    echo '<td align="right" style="font-size: .8em;">';
+    echo '<td><b>' . $blockUrl . '</b><span> (' . $coin->algo . ')</span></td>';
+    echo '<td align="right">'.$height.'</td>';
+    echo '<td align="right"><b>' . $reward . ' ' . $coin->symbol_show . '</b></td>';
+    echo '<td align="right">' . $percent . '%</td>';
+    echo '<td align="right">' . $value . '</td>';
+    echo '<td align="right">' . $d . '&nbsp;ago</td>';
+    echo '<td align="right">';
 
     if ($earning->status == 0)
     {

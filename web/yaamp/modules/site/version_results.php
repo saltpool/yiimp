@@ -6,6 +6,10 @@ $target = yaamp_hashrate_constant($algo);
 $interval = yaamp_hashrate_step();
 $delay = time() - $interval;
 
+echo '<br><div class="ui-widget">';
+echo '<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Versions</div>';
+echo '<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">';
+
 echo "<br><table class='dataGrid'>";
 echo "<thead>";
 echo "<tr>";
@@ -50,4 +54,4 @@ foreach ($versions as $item)
     echo "</tr>";
 }
 
-echo "</tbody></table>";
+echo "</tbody></table></div></div>";

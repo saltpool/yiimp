@@ -3,9 +3,9 @@ $mining = getdbosql('db_mining');
 $algo = user()->getState('yaamp-algo');
 if ($algo == 'all') return;
 
-echo "<div class='main-left-box'>";
-echo "<div class='main-left-title'>Pool Stats ($algo)</div>";
-echo "<div class='main-left-inner'>";
+echo "<div class='ui-widget'>";
+echo "<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>Pool Stats ($algo)</div>";
+echo "<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>";
 
 echo <<<END
 <style type="text/css">
@@ -52,8 +52,10 @@ $list = dbolist("SELECT coin_id FROM blocks WHERE coin_id IN (select id from coi
     ':algo' => $algo
 ));
 
+
 foreach ($list as $item)
 {
+
     $coin = getdbo('db_coins', $item['coin_id']);
 
     $id = $coin->id;
@@ -120,12 +122,13 @@ foreach ($list as $item)
     echo '<td><b><a href="/site/block?id=' . $id . '">' . $name . '</a></b></td>';
     echo '<td class="symb">' . $coin->symbol . '</td>';
 
-    echo '<td align="right" style="font-size: .9em;">' . $res1['a'] . '</td>';
-    echo '<td align="right" style="font-size: .9em;">' . $res2['a'] . '</td>';
-    echo '<td align="right" style="font-size: .9em;">' . $res3['a'] . '</td>';
-    echo '<td align="right" style="font-size: .9em;">' . $res4['a'] . '</td>';
+    echo '<td align="right">' . $res1['a'] . '</td>';
+    echo '<td align="right">' . $res2['a'] . '</td>';
+    echo '<td align="right">' . $res3['a'] . '</td>';
+    echo '<td align="right">' . $res4['a'] . '</td>';
 
     echo '</tr>';
+
 }
 
 $others = dbolist("SELECT id, image, symbol, name FROM coins
@@ -193,10 +196,10 @@ echo '<tr class="ssrow" style="border-top: 2px solid #eee;">';
 echo '<td width="18px"><img width="16px" src="/images/btc.png"></td>';
 echo '<td colspan="2"><b>BTC Value</b></td>';
 
-echo '<td align="right" style="font-size: .9em;">' . $total1 . '</td>';
-echo '<td align="right" style="font-size: .9em;">' . $total2 . '</td>';
-echo '<td align="right" style="font-size: .9em;">' . $total3 . '</td>';
-echo '<td align="right" style="font-size: .9em;">' . $total4 . '</td>';
+echo '<td align="right">' . $total1 . '</td>';
+echo '<td align="right">' . $total2 . '</td>';
+echo '<td align="right">' . $total3 . '</td>';
+echo '<td align="right">' . $total4 . '</td>';
 
 echo "</tr>";
 
@@ -205,10 +208,10 @@ echo '<tr class="ssrow" style="border-top: 2px solid #eee;">';
 echo '<td width="18px"></td>';
 echo '<td colspan="2"><b>Avg Hashrate</b></td>';
 
-echo '<td align="right" style="font-size: .9em;">' . $hashrate1 . 'h/s</td>';
-echo '<td align="right" style="font-size: .9em;">' . $hashrate2 . 'h/s</td>';
-echo '<td align="right" style="font-size: .9em;">' . $hashrate3 . 'h/s</td>';
-echo '<td align="right" style="font-size: .9em;">' . $hashrate4 . 'h/s</td>';
+echo '<td align="right">' . $hashrate1 . 'h/s</td>';
+echo '<td align="right">' . $hashrate2 . 'h/s</td>';
+echo '<td align="right">' . $hashrate3 . 'h/s</td>';
+echo '<td align="right">' . $hashrate4 . 'h/s</td>';
 
 echo '</tr>';
 
@@ -217,10 +220,10 @@ echo '<tr class="ssrow" style="border-top: 2px solid #eee;">';
 echo '<td width="18px"></td>';
 echo '<td colspan="2"><b>mBTC/Mh/d</b></td>';
 
-echo '<td align="right" style="font-size: .9em;">' . $btcmhday1 . '</td>';
-echo '<td align="right" style="font-size: .9em;">' . $btcmhday2 . '</td>';
-echo '<td align="right" style="font-size: .9em;">' . $btcmhday3 . '</td>';
-echo '<td align="right" style="font-size: .9em;">' . $btcmhday4 . '</td>';
+echo '<td align="right">' . $btcmhday1 . '</td>';
+echo '<td align="right">' . $btcmhday2 . '</td>';
+echo '<td align="right">' . $btcmhday3 . '</td>';
+echo '<td align="right">' . $btcmhday4 . '</td>';
 
 echo '</tr>';
 
@@ -230,3 +233,4 @@ echo '</div>';
 
 echo '<br>';
 echo '</div></div><br>';
+

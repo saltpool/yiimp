@@ -12,10 +12,7 @@ $height = '240px';
 
 echo <<<end
 
-<div id='resume_update_button' style='color: #ffffff; background-color: #41464b; border: 1px solid #7d7d7d;
-    padding: 10px; margin-left: 20px; margin-right: 20px; margin-top: 15px; cursor: pointer; display: none;'
-    onclick='auto_page_resume();' align=center>
-    <b>Auto Refresh Is Paused - Click Here To Resume</b></div>
+<div id='resume_update_button' class='ui-state-error' style='padding: 10px; cursor: pointer; display: none;' onclick='auto_page_resume();' align=center><b>Auto Refresh Is Paused - Click Here To Resume</b></div>
 
 <table cellspacing=20 width=100%>
 <tr><td valign=top width=50%>
@@ -28,15 +25,15 @@ end;
 
 if($algo != 'all')
 echo <<<end
-<div class="main-left-box">
-<div class="main-left-title">Last 24 Hours Estimate ($algo)</div>
-<div class="main-left-inner"><br>
+<div class='ui-widget'>
+<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>Last 24 Hours Estimate ($algo)</div>
+<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'><br>
 <div id='graph_results_price' style='height: $height;'></div><br>
 </div></div><br>
 
-<div class="main-left-box">
-<div class="main-left-title">Last 24 Hours Hashrate ($algo)</div>
-<div class="main-left-inner"><br>
+<div class='ui-widget'>
+<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>Last 24 Hours Hashrate ($algo)</div>
+<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'><br>
 <div id='pool_hashrate_results' style='height: $height;'></div><br>
 </div></div><br>
 end;
@@ -61,11 +58,6 @@ echo <<<end
 </div>
 
 </td></tr></table>
-
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
 
 <script>
 

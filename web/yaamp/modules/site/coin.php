@@ -8,7 +8,7 @@ if (!$coin)
 
 $this->pageTitle = 'Wallet - ' . $coin->symbol;
 
-// force a refresh after 10mn to prevent memory leaks in chrome
+// force a refresh after 10min to prevent memory leaks in chrome
 app()
     ->clientScript
     ->registerMetaTag('600', null, 'refresh');
@@ -54,17 +54,21 @@ else
 */
 echo <<<END
 
-<br/><a class="red" href="/site/deleteearnings?id={$coin->id}"><b>DELETE EARNINGS</b></a>
-<br/><a href="/site/clearearnings?id={$coin->id}"><b>CLEAR EARNINGS</b></a>
-<br/><a href="/site/checkblocks?id={$coin->id}"><b>UPDATE BLOCKS</b></a>
-<br/><a href="/site/payuserscoin?id={$coin->id}"><b>DO PAYMENTS</b></a>
+<br/><button id=button class='ui-state-default ui-corner-all' style='padding: 5px 15px 5px 15px'>
+<a href="/site/payuserscoin?id={$coin->id}"><b>DO PAYMENTS</a></button>
+<br/><button id=button class='ui-state-default ui-corner-all' style='padding: 5px 15px 5px 15px'>
+<a href="/site/checkblocks?id={$coin->id}"><b>UPDATE BLOCKS</a></button>
+<br/><button id=button class='ui-state-active ui-corner-all' style='padding: 5px 15px 5px 15px'>
+<a href="/site/deleteearnings?id={$coin->id}"><b>!! DELETE EARNINGS !!</a></button>
+<br/><button id=button class='ui-state-active ui-corner-all' style='padding: 5px 15px 5px 15px'>
+<a href="/site/clearearnings?id={$coin->id}"><b>!! CLEAR EARNINGS !!</a></button>
 <br/>
 </div>
 
 <style type="text/css">
 table.dataGrid a.red, table.dataGrid a.red:visited, a.red { color: darkred; }
 div#main_actions {
-	position: absolute; top: 60px; right: 16px; width: 280px; text-align: right;
+	position: absolute; top: 130px; right: 16px; width: 280px; text-align: right;
 }
 div#markets {
 	overflow-x: hidden; overflow-y: scroll; max-height: 156px;

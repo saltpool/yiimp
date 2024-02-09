@@ -8,7 +8,13 @@ echo <<<END
 <style type="text/css">
 </style>
 
-<br/><table width="100%"><tr><td valign="top">
+<br/>
+
+<div class='ui-widget'>
+<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>Dashboard</div>
+<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>
+
+<table width="100%"><tr><td valign="top">
 END;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -219,7 +225,7 @@ echo '<td align="right" style="font-size: .8em;"></td>';
 echo '<td align="right" style="font-size: .8em;"></td>';
 echo '</tr>';
 
-echo '</table><br>';
+echo '</table></div></div><br>';
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -546,7 +552,10 @@ $main_time2 = sectoa(time() - $this->memcache->get("cronjob_main_time_start"));
 
 $main_time = sectoa($this->memcache->get("cronjob_main_time"));
 $main_text = cronstate2text($state_main);
-
+///////////////////////////
+echo '<div class="ui-widget">';
+echo '<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Cron</div>';
+echo "<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>";
 echo "*** main  ($main_time) $state_main $main_text ($main_time2), loop2 ($loop2_time), block ($block_time)<br>";
 
 $topay  = dboscalar("select sum(balance) from accounts where coinid=$btc->id"); //here: take other currencies too
@@ -578,7 +587,9 @@ echo '<a href="https://blockchain.info/address/' . $btcaddr . '" target="_blank"
 echo "pay $topay, renter $renter, marg $margin, $margin2<br/>";
 echo "mint $mints immature $immature off $off<br/>";
 
-echo '<br/>';
+echo '<br/></div></div>';
+/////////////////////
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

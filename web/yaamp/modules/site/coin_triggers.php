@@ -28,8 +28,10 @@ div.help { float: left; color: #555; background-color: #ffffe0; padding: 6px; bo
 .page .footer { width: auto; }
 span.cmd { color: gray; }
 </style>
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Triggers</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 end;
-
 
 showTableSorter('maintable', "{
 	tableClass: 'dataGrid',
@@ -43,6 +45,7 @@ showTableSorter('maintable', "{
 }");
 
 echo <<<end
+<table>
 <thead>
 <tr>
 <th data-sorter="text">Type</th>
@@ -91,9 +94,13 @@ foreach ($notifications as $rule)
     echo "</tr>";
 }
 
-echo '</tbody></table><br/>';
+echo '</tbody></table></div></div><br/>';
 
 echo <<<end
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Create Trigger</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
+
 <div class="form">
 <form action="/site/triggerAdd?id={$coin->id}" method="post" style="padding: 0px;">
 <input type="hidden" name="idcoin" value="{$coin->id}">
@@ -105,7 +112,7 @@ echo <<<end
 </select><br/><br/>
 <input type="text" name="conditiontype" class="main-text-input" placeholder="Condition like 'balance >'" style="width: 190px; margin-right: 4px;">
 <input type="text" name="conditionvalue" class="main-text-input" placeholder="Value" style="width: 100px; margin-right: 4px;">
-<input type="submit" value="Add rule" class="main-submit-button" ><br/>
+<input type="submit" value="Add rule" class="main-submit-button ui-state-default ui-corner-all" ><br/>
 <input type="text" name="notifycmd" class="main-text-input" placeholder="Email or Command (optional)" style="width: 400px; margin-right: 4px; margin-top: 8px;"><br/>
 <input type="text" name="description" class="main-text-input" placeholder="Description (optional)" style="width: 400px; margin-right: 4px; margin-top: 8px;">
 </form>

@@ -12,8 +12,8 @@ echo getAdminSideBarLinks();
 
 //<a href='/site/eval'>Eval</a>&nbsp;
 ?>
-<a href='/site/memcached'>Memcache</a>&nbsp;
-<a href='/site/connections'>Connections</a>&nbsp;
+<button id=button class='ui-state-default ui-corner-all' style='padding: 5px 15px 5px 15px'><a href='/site/memcached'>Memcache</a></button>
+<button id=button class='ui-state-default ui-corner-all' style='padding: 5px 15px 5px 15px'><a href='/site/connections'>Connections</a></button>
 
 <?php if (YAAMP_RENTAL) : ?>
 <a href='/renting/admin'>Rental</a>&nbsp;
@@ -21,13 +21,9 @@ echo getAdminSideBarLinks();
 
 <div id='main_results'></div>
 
-<br><a href='/site/create'><img width=16 src=''><b>CREATE COIN</b></a>
-<br><a href='/site/updateprice'><img width=16 src=''><b>UPDATE PRICE</b></a>
-
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
+<button id=button class='ui-state-default ui-corner-all' style='padding: 5px 15px 5px 15px'><a href='/site/create'>CREATE COIN</a></button>
+<button id=button class='ui-state-default ui-corner-all' style='padding: 5px 15px 5px 15px'><a href='/site/updateprice'>UPDATE PRICE</a></button>
+<button id=button class='ui-state-active ui-corner-all' style='padding: 5px 15px 5px 15px'><a href='/site/themes'>THEME MANAGER</a></button>
 
 <script type="text/javascript">
 

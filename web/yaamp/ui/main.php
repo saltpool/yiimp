@@ -22,12 +22,38 @@ END;
 
 $pageTitle = empty($this->pageTitle) ? YAAMP_SITE_NAME : YAAMP_SITE_NAME . " - " . $this->pageTitle;
 
+$themelist = getdbolist('db_themes', 'active=1');
+
+$activetheme = "cupertino";
+$logo = "logo";
+
+foreach($themelist as $theme) {
+	$activetheme = $theme->name;
+	$dark = $theme->dark;
+
+	if($dark == 1) {
+		$logo = "logo-dark";
+	}
+	else {
+		$logo = "logo";
+	}
+}
+
 echo '<title>' . $pageTitle . '</title>';
 
-echo CHtml::cssFile("/extensions/jquery/themes/ui-lightness/jquery-ui.css");
-echo CHtml::cssFile('/yaamp/ui/css/main.css');
-echo CHtml::cssFile('/yaamp/ui/css/table.css');
+echo CHtml::cssFile("/extensions/jquery/themes/" . $activetheme . "/jquery-ui.css");
+echo CHtml::cssFile("/extensions/jquery/themes/default.css");
+//echo CHtml::cssFile('/yaamp/ui/css/main.css');
+//echo CHtml::cssFile('/yaamp/ui/css/table.css');
 
+/*$cy_param = "";
+$cy_value = "";
+
+$colour_db = getdbosql('db_settings', "param=:param,value=:value", array(
+                ':param' => $cy_param,
+                ':value' => $cy_value
+            ));
+*/
 //echo CHtml::scriptFile('/extensions/jquery/js/jquery-1.8.3-dev.js');
 //echo CHtml::scriptFile('/extensions/jquery/js/jquery-ui-1.9.1.custom.min.js');
 
@@ -45,7 +71,7 @@ echo CHtml::scriptFile('/yaamp/ui/js/jquery.tablesorter.js');
 // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-// ga('create', 'xxxxx', 'auto');
+// ga('create', 'UA-58136019-1', 'auto');
 // ga('send', 'pageview');
 
 // $(document).ajaxSuccess(function(){ga('send', 'pageview');});
@@ -58,9 +84,12 @@ echo "</head>";
 ///////////////////////////////////////////////////////////////
 
 echo '<body class="page">';
+//echo '<body class="jquery-ui page-template page-template-page-fullwidth page-template-page-fullwidth-php page page-id-74 page-slug-themeroller single-author singular">';
 echo '<a href="/site/mainbtc" style="display: none;">main</a>';
+?>
 
-showPageHeader();
+<?php
+showPageHeader($logo);
 showPageContent($content);
 showPageFooter();
 
@@ -76,17 +105,18 @@ function showItemHeader($selected, $url, $name)
     else
         $selected_text = '';
 
-    echo "<span><a $selected_text href='$url'>$name</a></span>";
+    echo "<button id=button class='ui-state-default ui-corner-all' style='padding: 5px 15px 5px 15px'><a $selected_text href='$url'>$name</a></button>";
     echo "&nbsp;";
 }
 
-function showPageHeader()
+function showPageHeader($logo)
 {
     echo '<div class="tabmenu-out">';
-    echo '<a href="/"><img src="/images/logo.png"></a>';
+    echo '<a href="/"><img src="/images/' . $logo . '.png" height=100></a>';
     echo '<div class="tabmenu-inner">';
 
-    echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">' . YAAMP_SITE_NAME . '</a>';
+//    echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">' . YAAMP_SITE_NAME . '</a>';
+    echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 
     $action = controller()->action->id;
     $wallet = user()->getState('yaamp-wallet');
@@ -134,7 +164,7 @@ function showPageHeader()
     $eta         = ($mining->last_payout + YAAMP_PAYMENTS_FREQ) - time();
     $eta_mn      = 'in ' . round($eta / 60) . ' minutes';
 
-    echo '<span id="nextpayout" style="font-size: .8em;" title="' . $eta_mn . '">Next Payout: ' . $nextpayment . '</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+echo '<div class="ui-widget-header ui-corner-all" style="padding: 5px"><span id="nextpayout" title="' . $eta_mn . '">Next Payout: ' . $nextpayment . '</span></div>';
     // echo '<span id="nextpayout" style="font-size: .8em;" title="'.$eta_mn.'">Next Payout: '.$nextpayment.' / '.$nextpaymentEUR.'</span>';
     // echo '<span id="nextpayout" style="font-size: .8em;" title="'.$eta_mn.'">Next Payout: '.$nextpayment.' UTC (US) / '.$nextpaymentEUR.' UTC+2 (EUR)</span>';
 
@@ -147,7 +177,7 @@ function showPageFooter()
     echo '<div class="footer">';
     $year = date("Y", time());
 
-    echo "<p>&copy; $year " . YAAMP_SITE_NAME . ' - ' . '<a href="https://github.com/saltpool/yiimp_install_script">Built With Saltpool Yiimp</a></p>';
+    echo "<p>&copy; $year " . YAAMP_SITE_NAME . ' - ' . '<a href="https://github.com/saltpool/yiimp_install_script">Built with Saltpool Yiimp</a></p>';
 
     echo '</div><!-- footer -->';
 }

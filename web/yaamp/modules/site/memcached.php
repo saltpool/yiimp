@@ -1,5 +1,4 @@
 <?php
-echo "<a href='/site/memcached'>refresh</a><br>";
 
 $a = controller()
     ->memcache
@@ -8,8 +7,11 @@ $a = controller()
 
 function printStats($stat)
 {
-    echo "<hr/>";
-    echo "<table>";
+    echo "<br><div class='ui-widget'>";
+    echo "<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>Memcached</div>";
+    echo "<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>";
+
+    echo "<br><table>";
     echo "<tr><td>Memcache Server version</td><td> " . $stat["version"] . "</td></tr>";
     echo "<tr><td>Process id of this server process</td><td>" . $stat["pid"] . "</td></tr>";
     echo "<tr><td>Server uptime </td><td>" . $stat["uptime"] . " seconds</td></tr>";
@@ -96,4 +98,6 @@ if (!empty($res)) foreach ($res as $item)
     echo "</tr>";
 }
 
-echo "</tbody></table></div>";
+echo "</tbody></table></div></div></div><br>";
+
+echo "<button id=button class='ui-state-default ui-corner-all' style='padding: 5px 15px 5px 15px'><a href='/site/memcached'>Refresh</a></button>";

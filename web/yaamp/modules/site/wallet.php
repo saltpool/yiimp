@@ -77,9 +77,11 @@ if($user) echo <<<END
 END;
 
 if($user) echo <<<END
-<div class="main-left-box">
-<div class="main-left-title">Last 24 Hours Balance: $user->username</div>
-<div class="main-left-inner"><br>
+
+<div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Last 24 Hours Balance: $user->username</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br"><br>
+
 <div id='graph_earnings_results' style='height: 240px;'></div>
 <div style='float: right;'>
 <span style='font-size: .8em; color: #4bb2c5;'>Balance</span>
@@ -111,9 +113,10 @@ if($user) echo <<<END
 END;
 
 echo <<<END
-<div class="main-left-box">
-<div class="main-left-title">Search Wallet:</div>
-<div class="main-left-inner">
+
+<div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Search wallet:</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 <form action="/" method="get" style="padding: 10px;">
 <input type="text" name="address" class="main-text-input" placeholder="Wallet Address">
 <input type="submit" value="Submit" class="main-submit-button" ><br><br>
@@ -130,7 +133,7 @@ foreach($recents as $addr)
 	$coin = getdbo('db_coins', $user->coinid);
 
 	if($user->username == $username)
-		echo "<tr style='background-color: #41464b;'><td width=24>";
+		echo "<tr><td width=24>";
 	else
 		echo "<tr class='ssrow'><td width=24>";
 

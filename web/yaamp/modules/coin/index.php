@@ -11,6 +11,9 @@ echo <<<end
 tr.ssrow.filtered { display: none; }
 .page .footer { clear: both; width: auto; margin-top: 16px; }
 </style>
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Coins</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 end;
 
 showTableSorter('maintable', "{
@@ -28,6 +31,7 @@ showTableSorter('maintable', "{
 }");
 
 echo <<<end
+
 <thead><tr>
 <th data-sorter="" width="30"></th>
 <th data-sorter="text">Name</th>
@@ -42,7 +46,6 @@ echo <<<end
 </tr></thead>
 <tbody>
 end;
-
 $total_active    = 0;
 $total_installed = 0;
 
@@ -115,6 +118,9 @@ foreach ($coins as $coin) {
 }
 
 echo "</tbody>";
+
+echo "</div></div>";
+
 echo "<tfoot>";
 
 $total = count($coins);
@@ -130,4 +136,4 @@ echo "</tr>";
 echo '</tfoot>';
 echo "</table>";
 
-echo "<br><br><br><br><br>";
+echo "<br>";

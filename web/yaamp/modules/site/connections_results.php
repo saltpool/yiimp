@@ -2,8 +2,14 @@
 $last = dboscalar("select max(last) from connections");
 $list = getdbolist('db_connections', "1 order by id desc");
 
+echo "<br><div class='ui-widget'>";
+echo "<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>Connections</div>";
+echo "<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>";
+
 //echo "<table class='dataGrid'>";
 showTableSorter('maintable');
+
+echo "<table>";
 echo "<thead>";
 echo "<tr>";
 echo "<th>ID</th>";
@@ -40,4 +46,4 @@ foreach ($list as $conn)
 
 echo "</tbody></table><br>";
 
-echo count($list) . " connections to the database<br>";
+echo count($list) . " connections to the database<br><br></div></div>";

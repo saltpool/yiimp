@@ -1,9 +1,9 @@
 
 <br>
 
-<div class="main-left-box">
-<div class="main-left-title">WRONG SITE</div>
-<div class="main-left-inner">
+<div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">WRONG SITE</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 
 <br>
 

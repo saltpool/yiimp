@@ -15,6 +15,11 @@ echo <<<end
 <style type="text/css">
 tr.ssrow.filtered { display: none; }
 </style>
+
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Workers</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
+
 end;
 
 showTableSorter('maintable', "{
@@ -64,6 +69,7 @@ foreach ($workers as $worker) {
 }
 
 foreach ($workers as $worker) {
+
     $user_rate = yaamp_worker_rate($worker->id);
     $percent   = 0.0;
     if ($total_rate)
@@ -80,7 +86,8 @@ foreach ($workers as $worker) {
     $shares   = '';
     if ($worker->userid) {
         $user = getdbo('db_accounts', $worker->userid);
-        if ($user) {
+
+/*        if ($user) {
             $coin     = getdbo('db_coins', $user->coinid);
             $coinsym  = $coin->symbol;
             $coinimg  = CHtml::image($coin->image, $coin->symbol, array(
@@ -88,8 +95,10 @@ foreach ($workers as $worker) {
             ));
             $coinlink = CHtml::link($coin->name, '/site/coin?id=' . $coin->id);
         }
+*/
         $name = empty($name) ? $user->login : $name;
         $gift = $user->donation;
+
     }
 
     $dns = !empty($worker->dns) ? $worker->dns : $worker->ip;
@@ -138,4 +147,5 @@ foreach ($workers as $worker) {
     echo '</tr>';
 }
 
-echo "</tbody></table>";
+echo "</tbody></table></div></div>";
+

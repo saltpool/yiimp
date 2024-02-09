@@ -1,6 +1,12 @@
 <?php
 $orders = getdbolist('db_orders', "1 order by (amount*bid) desc");
 
+
+echo "<br><div class='ui-widget'>";
+echo "<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>Exchanges</div>";
+echo "<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>";
+
+
 echo "<br><table class='dataGrid'>";
 //showTableSorter('maintable');
 echo "<thead>";
@@ -70,10 +76,16 @@ echo "<td></td>";
 echo "</tr>";
 
 echo "</tbody></table>";
+echo "</div></div>";
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $exchanges = getdbolist('db_exchange', "1 order by send_time desc limit 150");
 //$exchanges = getdbolist('db_exchange', "status='waiting' order by send_time desc");
+
+echo "<br><div class='ui-widget'>";
+echo "<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>Markets</div>";
+echo "<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>";
+
 echo "<br><table class='dataGrid'>";
 echo "<thead>";
 echo "<tr>";
@@ -129,4 +141,4 @@ foreach ($exchanges as $exchange)
     echo "</tr>";
 }
 
-echo "</tbody></table>";
+echo "</tbody></table></div></div>";
