@@ -1,6 +1,10 @@
 # Yiimp for Ubuntu 22.04, PHP 8.2 & Yii Framework 1.1.29!
+
+## What's new?
+- 24 colour "themes" added
+
 ## What's known to be broken
-- ...
+- Themes are in beta so there are bound to be things that break.
 
 ## To install this Yiimp fork use our Yiimp install script.
 ```
@@ -15,3 +19,5 @@ https://github.com/saltpool/yiimp_install_script, pulling the yiimp_install_scri
 * Thanks to tpruvot for the yiimp release
 * Thanks to mailinabox for the installer idea
 * Thanks for Afiniel-tech for their updates
+
+## On the shoulders of others we stand!
