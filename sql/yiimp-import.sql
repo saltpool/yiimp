@@ -1,25 +1,3 @@
--- PHP Version: 8.2.15
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `yiimpfrontend`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `accounts`
---
-
 CREATE TABLE `accounts` (
   `id` int(255) NOT NULL,
   `coinid` int(11) DEFAULT NULL,
@@ -36,12 +14,6 @@ CREATE TABLE `accounts` (
   `hostaddr` varchar(39) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `algos`
---
-
 CREATE TABLE `algos` (
   `id` int(11) NOT NULL,
   `name` varchar(16) DEFAULT NULL,
@@ -50,10 +22,6 @@ CREATE TABLE `algos` (
   `factor` double DEFAULT NULL,
   `overflow` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
---
--- Dumping data for table `algos`
---
 
 INSERT INTO `algos` (`id`, `name`, `profit`, `rent`, `factor`, `overflow`) VALUES
 (1, 'scrypt', 0, 0, 1, 1),
@@ -160,22 +128,12 @@ INSERT INTO `algos` (`id`, `name`, `profit`, `rent`, `factor`, `overflow`) VALUE
 (102, 'yespowerR24', 0, 0, 1, NULL),
 (103, 'yespowerR32', 0, 0, 1, NULL);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `balances`
---
-
 CREATE TABLE `balances` (
   `id` int(11) NOT NULL,
   `name` varchar(16) DEFAULT NULL,
   `balance` double DEFAULT NULL,
   `onsell` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
---
--- Dumping data for table `balances`
---
 
 INSERT INTO `balances` (`id`, `name`, `balance`, `onsell`) VALUES
 (1, 'bittrex', 0, NULL),
@@ -188,12 +146,6 @@ INSERT INTO `balances` (`id`, `name`, `balance`, `onsell`) VALUES
 (8, 'cryptopia', 0, NULL),
 (9, 'livecoin', 0, NULL);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `balanceuser`
---
-
 CREATE TABLE `balanceuser` (
   `id` int(11) NOT NULL,
   `userid` int(11) DEFAULT NULL,
@@ -201,12 +153,6 @@ CREATE TABLE `balanceuser` (
   `balance` double DEFAULT NULL,
   `pending` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `benchmarks`
---
 
 CREATE TABLE `benchmarks` (
   `id` int(11) NOT NULL,
@@ -232,12 +178,6 @@ CREATE TABLE `benchmarks` (
   `userid` int(11) DEFAULT NULL,
   `time` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `bench_chips`
---
 
 CREATE TABLE `bench_chips` (
   `id` int(11) NOT NULL,
@@ -265,23 +205,11 @@ CREATE TABLE `bench_chips` (
   `perfdata` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `bench_suffixes`
---
-
 CREATE TABLE `bench_suffixes` (
   `vendorid` varchar(12) NOT NULL,
   `chip` varchar(32) DEFAULT NULL,
   `suffix` varchar(32) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `blocks`
---
 
 CREATE TABLE `blocks` (
   `id` int(11) UNSIGNED NOT NULL,
@@ -302,12 +230,6 @@ CREATE TABLE `blocks` (
   `segwit` tinyint(1) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci COMMENT='Discovered blocks persisted from Litecoin Service';
 
--- --------------------------------------------------------
-
---
--- Table structure for table `bookmarks`
---
-
 CREATE TABLE `bookmarks` (
   `id` int(11) NOT NULL,
   `idcoin` int(11) NOT NULL,
@@ -315,12 +237,6 @@ CREATE TABLE `bookmarks` (
   `address` varchar(128) NOT NULL,
   `lastused` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `coins`
---
 
 CREATE TABLE `coins` (
   `id` int(11) NOT NULL,
@@ -414,18 +330,8 @@ CREATE TABLE `coins` (
   `specifications` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
---
--- Dumping data for table `coins`
---
-
 INSERT INTO `coins` (`id`, `name`, `symbol`, `symbol2`, `algo`, `version`, `image`, `market`, `marketid`, `master_wallet`, `charity_address`, `charity_amount`, `charity_percent`, `deposit_address`, `deposit_minimum`, `sellonbid`, `dontsell`, `block_explorer`, `index_avg`, `connections`, `errors`, `balance`, `immature`, `cleared`, `available`, `stake`, `mint`, `txfee`, `payout_min`, `payout_max`, `block_time`, `difficulty`, `difficulty_pos`, `block_height`, `target_height`, `powend_height`, `network_hash`, `price`, `price2`, `reward`, `reward_mul`, `mature_blocks`, `enable`, `auto_ready`, `visible`, `no_explorer`, `max_miners`, `max_shares`, `created`, `action`, `conf_folder`, `program`, `rpcuser`, `rpcpasswd`, `serveruser`, `rpchost`, `rpcport`, `dedicatedport`, `rpccurl`, `rpcssl`, `rpccert`, `rpcencoding`, `account`, `hasgetinfo`, `hassubmitblock`, `hasmasternodes`, `usememorypool`, `usesegwit`, `txmessage`, `auxpow`, `multialgos`, `lastblock`, `network_ttf`, `actual_ttf`, `pool_ttf`, `last_network_found`, `installed`, `watch`, `link_site`, `link_exchange`, `link_bitcointalk`, `link_github`, `link_explorer`, `link_twitter`, `link_discord`, `link_facebook`, `donation_address`, `usefaucet`, `specifications`) VALUES
 (6, 'Bitcoin', 'BTC', '', 'sha256', '109900', '/images/coin-6.png', '', 0, NULL, NULL, NULL, NULL, NULL, 0.005, 0, 1, '', 0.0000049361618444422, 0, 'This is a pre-release test build - use at your own risk - do not use for mining or merchant applications', 0, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, 51076366303.482, NULL, 364900, 349481, NULL, 80.81, 1, 1, 25.21212105, 1, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, 'yaamp1', 10301, NULL, 0, 0, NULL, 'POW', '', 1, 1, 0, NULL, 0, 1, 0, 0, '00000000000000000da2a64a9a8e32623575ba19c3125077d1715c1ba2d3b90c', 2147483647, 596, 2147483647, 1436648004, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `connections`
---
 
 CREATE TABLE `connections` (
   `id` int(11) NOT NULL,
@@ -436,10 +342,6 @@ CREATE TABLE `connections` (
   `idle` int(11) DEFAULT NULL,
   `last` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
---
--- Dumping data for table `connections`
---
 
 INSERT INTO `connections` (`id`, `user`, `host`, `db`, `created`, `idle`, `last`) VALUES
 (59, 'panel', 'localhost', 'yiimpfrontend', 1573421291, 0, 1573421291),
@@ -458,12 +360,6 @@ INSERT INTO `connections` (`id`, `user`, `host`, `db`, `created`, `idle`, `last`
 (80, 'panel', 'localhost', 'yiimpfrontend', 1573421552, 0, 1573421552),
 (81, 'panel', 'localhost', 'yiimpfrontend', 1573421572, 0, 1573421572);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `earnings`
---
-
 CREATE TABLE `earnings` (
   `id` int(11) NOT NULL,
   `userid` int(11) DEFAULT NULL,
@@ -475,12 +371,6 @@ CREATE TABLE `earnings` (
   `status` int(11) DEFAULT NULL,
   `mature_time` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `exchange`
---
 
 CREATE TABLE `exchange` (
   `id` int(11) NOT NULL,
@@ -496,12 +386,6 @@ CREATE TABLE `exchange` (
   `tx` varchar(65) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `hashrate`
---
-
 CREATE TABLE `hashrate` (
   `id` int(11) NOT NULL,
   `time` int(11) DEFAULT NULL,
@@ -513,10 +397,6 @@ CREATE TABLE `hashrate` (
   `difficulty` double DEFAULT NULL,
   `algo` varchar(16) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
---
--- Dumping data for table `hashrate`
---
 
 INSERT INTO `hashrate` (`id`, `time`, `hashrate`, `hashrate_bad`, `price`, `rent`, `earnings`, `difficulty`, `algo`) VALUES
 (12574, 1459692900, 0, NULL, 0, 0, NULL, NULL, 'sha256'),
@@ -853,12 +733,6 @@ INSERT INTO `hashrate` (`id`, `time`, `hashrate`, `hashrate_bad`, `price`, `rent
 (12905, 1573421400, 0, NULL, 0, 0, NULL, NULL, 'yespowerR32'),
 (12906, 1573421400, 0, NULL, 0, 0, NULL, NULL, 'zr5');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `hashrenter`
---
-
 CREATE TABLE `hashrenter` (
   `id` int(11) NOT NULL,
   `renterid` int(11) DEFAULT NULL,
@@ -868,12 +742,6 @@ CREATE TABLE `hashrenter` (
   `hashrate_bad` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `hashstats`
---
-
 CREATE TABLE `hashstats` (
   `id` int(11) NOT NULL,
   `time` int(11) DEFAULT NULL,
@@ -881,12 +749,6 @@ CREATE TABLE `hashstats` (
   `earnings` double DEFAULT NULL,
   `algo` varchar(16) DEFAULT 'scrypt'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `hashuser`
---
 
 CREATE TABLE `hashuser` (
   `id` int(11) NOT NULL,
@@ -896,12 +758,6 @@ CREATE TABLE `hashuser` (
   `hashrate_bad` bigint(11) DEFAULT NULL,
   `algo` varchar(16) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `jobs`
---
 
 CREATE TABLE `jobs` (
   `id` int(11) NOT NULL,
@@ -920,12 +776,6 @@ CREATE TABLE `jobs` (
   `percent` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `jobsubmits`
---
-
 CREATE TABLE `jobsubmits` (
   `id` int(11) NOT NULL,
   `jobid` int(11) DEFAULT NULL,
@@ -936,12 +786,6 @@ CREATE TABLE `jobsubmits` (
   `amount` double DEFAULT NULL,
   `algo` varchar(16) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `markets`
---
 
 CREATE TABLE `markets` (
   `id` int(11) NOT NULL,
@@ -965,12 +809,6 @@ CREATE TABLE `markets` (
   `base_coin` varchar(64) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `market_history`
---
-
 CREATE TABLE `market_history` (
   `id` int(11) NOT NULL,
   `time` int(11) NOT NULL,
@@ -980,12 +818,6 @@ CREATE TABLE `market_history` (
   `balance` double DEFAULT NULL,
   `idmarket` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mining`
---
 
 CREATE TABLE `mining` (
   `id` int(11) NOT NULL,
@@ -997,18 +829,8 @@ CREATE TABLE `mining` (
   `best_algo` varchar(64) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
---
--- Dumping data for table `mining`
---
-
 INSERT INTO `mining` (`id`, `usdbtc`, `last_monitor_exchange`, `last_update_price`, `last_payout`, `stratumids`, `best_algo`) VALUES
 (1, 9039.63, 1422830048, 1422829644, 1573420248, '', 'lyra2');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `nicehash`
---
 
 CREATE TABLE `nicehash` (
   `id` int(11) NOT NULL,
@@ -1024,10 +846,6 @@ CREATE TABLE `nicehash` (
   `rejected` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
---
--- Dumping data for table `nicehash`
---
-
 INSERT INTO `nicehash` (`id`, `active`, `orderid`, `last_decrease`, `algo`, `btc`, `price`, `speed`, `workers`, `accepted`, `rejected`) VALUES
 (1, 0, NULL, NULL, 'x11', NULL, NULL, NULL, 0, 0, 0),
 (2, 0, NULL, NULL, 'scrypt', NULL, NULL, NULL, NULL, NULL, NULL),
@@ -1038,12 +856,6 @@ INSERT INTO `nicehash` (`id`, `active`, `orderid`, `last_decrease`, `algo`, `btc
 (7, 0, NULL, NULL, 'nist5', NULL, NULL, NULL, NULL, NULL, NULL),
 (8, 0, NULL, NULL, 'neoscrypt', NULL, NULL, NULL, 0, 0, 0),
 (9, 0, NULL, NULL, 'lyra2', NULL, NULL, NULL, 0, 0, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `notifications`
---
 
 CREATE TABLE `notifications` (
   `id` int(11) NOT NULL,
@@ -1058,12 +870,6 @@ CREATE TABLE `notifications` (
   `lasttriggered` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `orders`
---
-
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `coinid` int(11) DEFAULT NULL,
@@ -1075,12 +881,6 @@ CREATE TABLE `orders` (
   `market` varchar(16) DEFAULT NULL,
   `uuid` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payouts`
---
 
 CREATE TABLE `payouts` (
   `id` int(11) NOT NULL,
@@ -1095,22 +895,12 @@ CREATE TABLE `payouts` (
   `errmsg` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `rawcoins`
---
-
 CREATE TABLE `rawcoins` (
   `id` int(11) NOT NULL,
   `name` varchar(64) DEFAULT NULL,
   `symbol` varchar(32) DEFAULT NULL,
   `active` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
---
--- Dumping data for table `rawcoins`
---
 
 INSERT INTO `rawcoins` (`id`, `name`, `symbol`, `active`) VALUES
 (1, 'Bitcoin', 'BTC', 1),
@@ -1583,12 +1373,6 @@ INSERT INTO `rawcoins` (`id`, `name`, `symbol`, `active`) VALUES
 (654, 'NakomotoDark', 'NKT', 1),
 (655, 'Ideacoin', 'IDC', 1);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `renters`
---
-
 CREATE TABLE `renters` (
   `id` int(11) NOT NULL,
   `created` int(11) DEFAULT NULL,
@@ -1609,12 +1393,6 @@ CREATE TABLE `renters` (
   `custom_server` varchar(1024) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `rentertxs`
---
-
 CREATE TABLE `rentertxs` (
   `id` int(11) NOT NULL,
   `renterid` int(11) DEFAULT NULL,
@@ -1625,24 +1403,12 @@ CREATE TABLE `rentertxs` (
   `tx` varchar(1024) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `servers`
---
-
 CREATE TABLE `servers` (
   `id` int(11) NOT NULL,
   `name` varchar(32) DEFAULT NULL,
   `maxcoins` int(11) DEFAULT NULL,
   `uptime` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `services`
---
 
 CREATE TABLE `services` (
   `id` int(11) NOT NULL,
@@ -1654,10 +1420,6 @@ CREATE TABLE `services` (
   `custom_accept` double DEFAULT NULL,
   `custom_reject` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
---
--- Dumping data for table `services`
---
 
 INSERT INTO `services` (`id`, `name`, `algo`, `price`, `speed`, `custom_balance`, `custom_accept`, `custom_reject`) VALUES
 (1, 'Nicehash', 'scrypt', 0.0003646, 20628000000, 0, 0, 0),
@@ -1676,23 +1438,13 @@ INSERT INTO `services` (`id`, `name`, `algo`, `price`, `speed`, `custom_balance`
 (20, 'Nicehash', 'keccak', 0.0000027, 153200000, 0, 0, 0),
 (21, 'Nicehash', 'whirlx', 0.0000091, 1100700000, 0, 0, 0);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `settings`
---
-
 CREATE TABLE `settings` (
   `param` varchar(128) NOT NULL,
   `value` varchar(255) DEFAULT NULL,
   `type` varchar(8) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
---
--- Dumping data for table `settings`
---
-
- `settings` (`param`, `value`, `type`) VALUES
+INSERT INTO `settings` (`param`, `value`, `type`) VALUES
 ('alcurex-disabled', '1', 'bool'),
 ('binance-disabled', '1', 'bool'),
 ('bittrex-withdraw_fee_btc', '0.0005', 'price'),
@@ -1710,12 +1462,6 @@ CREATE TABLE `settings` (
 ('tradesatoshi-disabled', '1', 'bool'),
 ('yobit-DCR-BTC-disabled', '1', 'bool');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `shares`
---
-
 CREATE TABLE `shares` (
   `id` bigint(30) NOT NULL,
   `userid` int(11) DEFAULT NULL,
@@ -1732,12 +1478,6 @@ CREATE TABLE `shares` (
   `algo` varchar(16) DEFAULT 'x11'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `stats`
---
-
 CREATE TABLE `stats` (
   `id` int(11) NOT NULL,
   `time` int(11) DEFAULT NULL,
@@ -1752,21 +1492,11 @@ CREATE TABLE `stats` (
   `renters` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
---
--- Dumping data for table `stats`
---
-
- `stats` (`id`, `time`, `profit`, `wallet`, `wallets`, `immature`, `margin`, `waiting`, `balances`, `onsell`, `renters`) VALUES
+INSERT INTO `stats` (`id`, `time`, `profit`, `wallet`, `wallets`, `immature`, `margin`, `waiting`, `balances`, `onsell`, `renters`) VALUES
 (382, 1459692900, 0, 0, NULL, NULL, 0, NULL, 0, NULL, NULL),
 (383, 1573419600, 0, 0, NULL, NULL, 0, NULL, 0, NULL, NULL),
 (384, 1573420500, 0, 0, NULL, NULL, 0, NULL, 0, NULL, NULL),
 (385, 1573421400, 0, 0, NULL, NULL, 0, NULL, 0, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `stratums`
---
 
 CREATE TABLE `stratums` (
   `pid` int(11) NOT NULL,
@@ -1780,12 +1510,6 @@ CREATE TABLE `stratums` (
   `fds` int(10) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `themes`
---
-
 CREATE TABLE `themes` (
   `id` int(11) NOT NULL,
   `name` varchar(16) DEFAULT NULL,
@@ -1793,10 +1517,6 @@ CREATE TABLE `themes` (
   `active` tinyint(1) NOT NULL DEFAULT 0,
   `dark` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `themes`
---
 
 INSERT INTO `themes` (`id`, `name`, `enabled`, `active`, `dark`) VALUES
 (1, 'black-tie', 1, 0, 1),
@@ -1824,12 +1544,6 @@ INSERT INTO `themes` (`id`, `name`, `enabled`, `active`, `dark`) VALUES
 (23, 'ui-lightness', 1, 0, 1),
 (24, 'vader', 1, 0, 1);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `withdraws`
---
-
 CREATE TABLE `withdraws` (
   `id` int(11) NOT NULL,
   `market` varchar(1024) DEFAULT NULL,
@@ -1838,12 +1552,6 @@ CREATE TABLE `withdraws` (
   `time` int(11) DEFAULT NULL,
   `uuid` varchar(1024) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `workers`
---
 
 CREATE TABLE `workers` (
   `id` int(11) NOT NULL,
@@ -1862,13 +1570,6 @@ CREATE TABLE `workers` (
   `algo` varchar(16) DEFAULT 'scrypt'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `accounts`
---
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
@@ -1876,31 +1577,19 @@ ALTER TABLE `accounts`
   ADD KEY `balance` (`balance`),
   ADD KEY `earning` (`last_earning`);
 
---
--- Indexes for table `algos`
---
 ALTER TABLE `algos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `name` (`name`);
 
---
--- Indexes for table `balances`
---
 ALTER TABLE `balances`
   ADD PRIMARY KEY (`id`),
   ADD KEY `name` (`name`);
 
---
--- Indexes for table `balanceuser`
---
 ALTER TABLE `balanceuser`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userid` (`userid`),
   ADD KEY `time` (`time`);
 
---
--- Indexes for table `benchmarks`
---
 ALTER TABLE `benchmarks`
   ADD PRIMARY KEY (`id`),
   ADD KEY `bench_userid` (`userid`),
@@ -1909,23 +1598,14 @@ ALTER TABLE `benchmarks`
   ADD KEY `ndx_time` (`time`),
   ADD KEY `ndx_chip` (`idchip`);
 
---
--- Indexes for table `bench_chips`
---
 ALTER TABLE `bench_chips`
   ADD PRIMARY KEY (`id`),
   ADD KEY `ndx_chip_type` (`devicetype`),
   ADD KEY `ndx_chip_name` (`chip`);
 
---
--- Indexes for table `bench_suffixes`
---
 ALTER TABLE `bench_suffixes`
   ADD PRIMARY KEY (`vendorid`);
 
---
--- Indexes for table `blocks`
---
 ALTER TABLE `blocks`
   ADD PRIMARY KEY (`id`),
   ADD KEY `time` (`time`),
@@ -1935,16 +1615,10 @@ ALTER TABLE `blocks`
   ADD KEY `user1` (`userid`),
   ADD KEY `height1` (`height`);
 
---
--- Indexes for table `bookmarks`
---
 ALTER TABLE `bookmarks`
   ADD PRIMARY KEY (`id`),
   ADD KEY `bookmarks_coin` (`idcoin`);
 
---
--- Indexes for table `coins`
---
 ALTER TABLE `coins`
   ADD PRIMARY KEY (`id`),
   ADD KEY `auto_ready` (`auto_ready`),
@@ -1954,15 +1628,9 @@ ALTER TABLE `coins`
   ADD KEY `index_avg` (`index_avg`),
   ADD KEY `created` (`created`);
 
---
--- Indexes for table `connections`
---
 ALTER TABLE `connections`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `earnings`
---
 ALTER TABLE `earnings`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `ndx_user_block` (`userid`,`blockid`),
@@ -1972,9 +1640,6 @@ ALTER TABLE `earnings`
   ADD KEY `create1` (`create_time`),
   ADD KEY `status` (`status`);
 
---
--- Indexes for table `exchange`
---
 ALTER TABLE `exchange`
   ADD PRIMARY KEY (`id`),
   ADD KEY `coinid` (`coinid`),
@@ -1982,40 +1647,25 @@ ALTER TABLE `exchange`
   ADD KEY `market` (`market`),
   ADD KEY `send_time` (`send_time`);
 
---
--- Indexes for table `hashrate`
---
 ALTER TABLE `hashrate`
   ADD PRIMARY KEY (`id`),
   ADD KEY `t1` (`time`),
   ADD KEY `a1` (`algo`);
 
---
--- Indexes for table `hashrenter`
---
 ALTER TABLE `hashrenter`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `hashstats`
---
 ALTER TABLE `hashstats`
   ADD PRIMARY KEY (`id`),
   ADD KEY `algo1` (`algo`),
   ADD KEY `time1` (`time`);
 
---
--- Indexes for table `hashuser`
---
 ALTER TABLE `hashuser`
   ADD PRIMARY KEY (`id`),
   ADD KEY `u1` (`userid`),
   ADD KEY `t1` (`time`),
   ADD KEY `a1` (`algo`);
 
---
--- Indexes for table `jobs`
---
 ALTER TABLE `jobs`
   ADD PRIMARY KEY (`id`),
   ADD KEY `renterid` (`renterid`),
@@ -2024,15 +1674,9 @@ ALTER TABLE `jobs`
   ADD KEY `algo` (`algo`),
   ADD KEY `price` (`price`);
 
---
--- Indexes for table `jobsubmits`
---
 ALTER TABLE `jobsubmits`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `markets`
---
 ALTER TABLE `markets`
   ADD PRIMARY KEY (`id`),
   ADD KEY `coinid` (`coinid`),
@@ -2040,94 +1684,55 @@ ALTER TABLE `markets`
   ADD KEY `lastsent` (`lastsent`),
   ADD KEY `lasttraded` (`lasttraded`);
 
---
--- Indexes for table `market_history`
---
 ALTER TABLE `market_history`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idcoin` (`idcoin`),
   ADD KEY `idmarket` (`idmarket`),
   ADD KEY `time` (`time`);
 
---
--- Indexes for table `mining`
---
 ALTER TABLE `mining`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `nicehash`
---
 ALTER TABLE `nicehash`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `notifications`
---
 ALTER TABLE `notifications`
   ADD PRIMARY KEY (`id`),
   ADD KEY `notif_coin` (`idcoin`),
   ADD KEY `notif_checked` (`lastchecked`);
 
---
--- Indexes for table `orders`
---
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
   ADD KEY `coinid` (`coinid`),
   ADD KEY `created` (`created`),
   ADD KEY `market` (`market`);
 
---
--- Indexes for table `payouts`
---
 ALTER TABLE `payouts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `account_id` (`account_id`,`completed`),
   ADD KEY `payouts_coin` (`idcoin`);
 
---
--- Indexes for table `rawcoins`
---
 ALTER TABLE `rawcoins`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `renters`
---
 ALTER TABLE `renters`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `rentertxs`
---
 ALTER TABLE `rentertxs`
   ADD PRIMARY KEY (`id`),
   ADD KEY `renterid` (`renterid`),
   ADD KEY `time` (`time`);
 
---
--- Indexes for table `servers`
---
 ALTER TABLE `servers`
   ADD PRIMARY KEY (`id`),
   ADD KEY `name1` (`name`);
 
---
--- Indexes for table `services`
---
 ALTER TABLE `services`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `settings`
---
 ALTER TABLE `settings`
   ADD PRIMARY KEY (`param`);
 
---
--- Indexes for table `shares`
---
 ALTER TABLE `shares`
   ADD PRIMARY KEY (`id`),
   ADD KEY `time` (`time`),
@@ -2138,34 +1743,19 @@ ALTER TABLE `shares`
   ADD KEY `coin1` (`coinid`),
   ADD KEY `jobid` (`jobid`);
 
---
--- Indexes for table `stats`
---
 ALTER TABLE `stats`
   ADD PRIMARY KEY (`id`),
   ADD KEY `time` (`time`);
 
---
--- Indexes for table `stratums`
---
 ALTER TABLE `stratums`
   ADD PRIMARY KEY (`pid`);
 
---
--- Indexes for table `themes`
---
 ALTER TABLE `themes`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `withdraws`
---
 ALTER TABLE `withdraws`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `workers`
---
 ALTER TABLE `workers`
   ADD PRIMARY KEY (`id`),
   ADD KEY `algo1` (`algo`),
@@ -2173,251 +1763,122 @@ ALTER TABLE `workers`
   ADD KEY `userid` (`userid`),
   ADD KEY `pid` (`pid`);
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `accounts`
---
 ALTER TABLE `accounts`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `algos`
---
 ALTER TABLE `algos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
---
--- AUTO_INCREMENT for table `balances`
---
 ALTER TABLE `balances`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
---
--- AUTO_INCREMENT for table `balanceuser`
---
 ALTER TABLE `balanceuser`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `benchmarks`
---
 ALTER TABLE `benchmarks`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `bench_chips`
---
 ALTER TABLE `bench_chips`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `blocks`
---
 ALTER TABLE `blocks`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `bookmarks`
---
 ALTER TABLE `bookmarks`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `coins`
---
 ALTER TABLE `coins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1425;
 
---
--- AUTO_INCREMENT for table `earnings`
---
 ALTER TABLE `earnings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `exchange`
---
 ALTER TABLE `exchange`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `hashrate`
---
 ALTER TABLE `hashrate`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12907;
 
---
--- AUTO_INCREMENT for table `hashrenter`
---
 ALTER TABLE `hashrenter`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `hashstats`
---
 ALTER TABLE `hashstats`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `hashuser`
---
 ALTER TABLE `hashuser`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `jobs`
---
 ALTER TABLE `jobs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `jobsubmits`
---
 ALTER TABLE `jobsubmits`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `markets`
---
 ALTER TABLE `markets`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2590;
 
---
--- AUTO_INCREMENT for table `market_history`
---
 ALTER TABLE `market_history`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `mining`
---
 ALTER TABLE `mining`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT for table `nicehash`
---
 ALTER TABLE `nicehash`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
---
--- AUTO_INCREMENT for table `notifications`
---
 ALTER TABLE `notifications`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `orders`
---
 ALTER TABLE `orders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `payouts`
---
 ALTER TABLE `payouts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `rawcoins`
---
 ALTER TABLE `rawcoins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=656;
 
---
--- AUTO_INCREMENT for table `renters`
---
 ALTER TABLE `renters`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `rentertxs`
---
 ALTER TABLE `rentertxs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `servers`
---
 ALTER TABLE `servers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `services`
---
 ALTER TABLE `services`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
---
--- AUTO_INCREMENT for table `shares`
---
 ALTER TABLE `shares`
   MODIFY `id` bigint(30) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `stats`
---
 ALTER TABLE `stats`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=386;
 
---
--- AUTO_INCREMENT for table `themes`
---
 ALTER TABLE `themes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
---
--- AUTO_INCREMENT for table `withdraws`
---
 ALTER TABLE `withdraws`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `workers`
---
 ALTER TABLE `workers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `benchmarks`
---
 ALTER TABLE `benchmarks`
   ADD CONSTRAINT `fk_bench_chip` FOREIGN KEY (`idchip`) REFERENCES `bench_chips` (`id`);
 
---
--- Constraints for table `bookmarks`
---
 ALTER TABLE `bookmarks`
   ADD CONSTRAINT `fk_bookmarks_coin` FOREIGN KEY (`idcoin`) REFERENCES `coins` (`id`) ON DELETE CASCADE;
 
---
--- Constraints for table `market_history`
---
 ALTER TABLE `market_history`
   ADD CONSTRAINT `fk_mh_coin` FOREIGN KEY (`idcoin`) REFERENCES `coins` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_mh_market` FOREIGN KEY (`idmarket`) REFERENCES `markets` (`id`) ON DELETE CASCADE;
 
---
--- Constraints for table `notifications`
---
 ALTER TABLE `notifications`
   ADD CONSTRAINT `fk_notif_coin` FOREIGN KEY (`idcoin`) REFERENCES `coins` (`id`) ON DELETE CASCADE;
 
---
--- Constraints for table `payouts`
---
 ALTER TABLE `payouts`
   ADD CONSTRAINT `fk_payouts_account` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_payouts_coin` FOREIGN KEY (`idcoin`) REFERENCES `coins` (`id`) ON DELETE CASCADE;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
