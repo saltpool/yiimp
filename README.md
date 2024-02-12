@@ -1,5 +1,8 @@
 # Yiimp for Ubuntu 22.04, PHP 8.2 & Yii Framework 1.1.29!
 
+## Note: You will most likely want to use an installer script to use this repo.
+You can struggle through it yourself it you want, but this Yiimp repo is designed to be used with https://github.com/saltpool/yiimp_install_script
+
 ## What's new?
 - 24 colour "themes" added
 
