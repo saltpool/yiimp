@@ -1,10 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.1.1deb5ubuntu1
--- https://www.phpmyadmin.net/
---
--- Host: localhost:3306
--- Generation Time: Feb 12, 2024 at 05:48 AM
--- Server version: 10.6.16-MariaDB-0ubuntu0.22.04.1
 -- PHP Version: 8.2.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -1699,7 +1692,7 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`param`, `value`, `type`) VALUES
+ `settings` (`param`, `value`, `type`) VALUES
 ('alcurex-disabled', '1', 'bool'),
 ('binance-disabled', '1', 'bool'),
 ('bittrex-withdraw_fee_btc', '0.0005', 'price'),
@@ -1763,7 +1756,7 @@ CREATE TABLE `stats` (
 -- Dumping data for table `stats`
 --
 
-INSERT INTO `stats` (`id`, `time`, `profit`, `wallet`, `wallets`, `immature`, `margin`, `waiting`, `balances`, `onsell`, `renters`) VALUES
+ `stats` (`id`, `time`, `profit`, `wallet`, `wallets`, `immature`, `margin`, `waiting`, `balances`, `onsell`, `renters`) VALUES
 (382, 1459692900, 0, 0, NULL, NULL, 0, NULL, 0, NULL, NULL),
 (383, 1573419600, 0, 0, NULL, NULL, 0, NULL, 0, NULL, NULL),
 (384, 1573420500, 0, 0, NULL, NULL, 0, NULL, 0, NULL, NULL),
