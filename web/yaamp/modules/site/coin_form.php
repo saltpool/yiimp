@@ -543,11 +543,11 @@ if ($coin->id)
         echo "alertnotify=echo %s | mail -s \"{$coin->name} alert!\" " . YAAMP_ADMIN_EMAIL . "\n";
         if (empty($coin->dedicatedport))
         {
-            echo "blocknotify=blocknotify.sh $port {$coin->id} %s\n";
+            echo "blocknotify=blocknotify.sh {$coin->rpchost}:$port {$coin->id} %s\n";
         }
         else
         {
-            echo "blocknotify=blocknotify.sh $dedport {$coin->id} %s\n";
+            echo "blocknotify=blocknotify.sh {$coin->rpchost}:$dedport {$coin->id} %s\n";
         }
         echo " \n";
         echo "' | sudo -E tee {$coin->conf_folder}/$program.conf >/dev/null 2>&1\n";
