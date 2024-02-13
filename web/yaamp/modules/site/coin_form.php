@@ -553,13 +553,22 @@ if ($coin->id)
         echo "' | sudo -E tee {$coin->conf_folder}/$program.conf >/dev/null 2>&1\n";
         echo CHtml::closetag("pre");
 
-        //multiserversed
-	//echo CHtml::tag("hr");
-        //echo "<b>Open RPC Port on Daemon Server</b>:";
-        //echo CHtml::opentag("pre");
-        //echo "sudo ufw allow from internalipsed to any port {$coin->rpcport}\n";
-        //echo '<p class="formHint2">Run on Daemon Server Only.</p>';
-        //echo CHtml::closetag("pre");
+	echo CHtml::tag("hr");
+        echo "<b>Open stratum port on firewall (single server model only, or on stratum server only)</b>:";
+        echo CHtml::opentag("pre");
+        if (empty($coin->dedicatedport))
+        {
+                echo "sudo ufw allow $port/tcp\n";
+        }
+        else
+        {
+                echo "sudo ufw allow {$coin->dedicatedport}/tcp\n";
+        }
+        echo "sudo ufw reload\n";
+
+        echo '<p class="formHint2">Only run this on the server running your stratum.</p>';
+        echo CHtml::closetag("pre");
+
 
         echo CHtml::tag("hr");
         echo "<b>Add coind to system startup (cron)</b>:";
