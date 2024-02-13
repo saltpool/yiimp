@@ -578,7 +578,7 @@ if ($coin->id)
         {
                 echo "GENERIC ALGO STRATUM PORT LAUNCH: (do not use this if you already have {$coin->algo} running on your system)\n";
                 echo "echo '";
-                echo "screen -dmS {$coin->algo}" . ' $STRATUM_DIR' . "/run.sh {$coin->algo}";
+                echo "\nscreen -dmS {$coin->algo}" . ' $STRATUM_DIR' . "/run.sh {$coin->algo}";
                 echo "' | sudo -E tee -a /etc/screen-stratum.sh >/dev/null 2>&1";
 				echo "\n\nFirst time launch: screen -dmS {$coin->algo}" . ' $STRATUM_DIR' . "/run.sh {$coin->algo}";
         }
@@ -586,7 +586,7 @@ if ($coin->id)
         {
                 echo "DEDICATED STRATUM PORT LAUNCH:\n";
                 echo "echo '";
-                echo "screen -dmS $program" . ' $STRATUM_DIR' . "/run.sh {$coin->algo}";
+                echo "\nscreen -dmS $program" . ' $STRATUM_DIR' . "/run.sh {$coin->algo}";
                 echo "' | sudo -E tee -a /etc/screen-stratum.sh >/dev/null 2>&1";
 
                 echo "\ncp /var/stratum/config/{$coin->algo}.conf /var/stratum/config/{$coin->algo}-{$coin->dedicatedport}.conf";
