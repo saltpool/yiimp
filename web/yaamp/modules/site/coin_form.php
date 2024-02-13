@@ -580,7 +580,7 @@ if ($coin->id)
                 echo "echo '";
                 echo "\nscreen -dmS {$coin->algo}" . ' $STRATUM_DIR' . "/run.sh {$coin->algo}";
                 echo "' | sudo -E tee -a /etc/screen-stratum.sh >/dev/null 2>&1";
-				echo "\n\nFirst time launch: screen -dmS {$coin->algo}" . ' $STRATUM_DIR' . "/run.sh {$coin->algo}";
+				echo "\n\nFirst time launch: screen -dmS {$coin->algo} /var/stratum/run.sh {$coin->algo}";
         }
         else
         {
@@ -591,7 +591,7 @@ if ($coin->id)
 
                 echo "\ncp /var/stratum/config/{$coin->algo}.conf /var/stratum/config/{$coin->algo}-{$coin->dedicatedport}.conf";
                 echo "\nsudo sed -i '/.*port =.*/c\port = {$coin->dedicatedport}' /var/stratum/config/{$coin->algo}-{$coin->dedicatedport}.conf";
-				echo "\n\nFirst time launch: screen -dmS $program" . ' $STRATUM_DIR' . "/run.sh {$coin->algo}";
+				echo "\n\nFirst time launch: screen -dmS $program /var/stratum/run.sh {$coin->algo}";
         }
 
         echo "\n";
