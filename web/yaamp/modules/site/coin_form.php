@@ -570,6 +570,34 @@ if ($coin->id)
         echo CHtml::closetag("pre");
 
         echo CHtml::tag("hr");
+        echo "<b>Add stratum startup</b>:<br>";
+        echo "Important: Different scripts exist whether you are using dedicated or general stratum ports";
+        echo CHtml::opentag("pre");
+
+        if (empty($coin->dedicatedport))
+        {
+                echo "GENERIC ALGO STRATUM PORT LAUNCH: (do not use this if you already have {$coin->algo} running on your system)\n";
+                echo "echo '";
+                echo "screen -dmS {$coin->algo}" . ' $STRATUM_DIR' . "/run.sh {$coin->algo}";
+                echo "' | sudo -E tee -a /etc/screen-stratum.sh >/dev/null 2>&1";
+				echo "\n\nFirst time launch: screen -dmS {$coin->algo}" . ' $STRATUM_DIR' . "/run.sh {$coin->algo}";
+        }
+        else
+        {
+                echo "DEDICATED STRATUM PORT LAUNCH:\n";
+                echo "echo '";
+                echo "screen -dmS $program" . ' $STRATUM_DIR' . "/run.sh {$coin->algo}";
+                echo "' | sudo -E tee -a /etc/screen-stratum.sh >/dev/null 2>&1";
+
+                echo "\ncp /var/stratum/config/{$coin->algo}.conf /var/stratum/config/{$coin->algo}-{$coin->dedicatedport}.conf";
+                echo "\nsudo sed -i '/.*port =.*/c\port = {$coin->dedicatedport}' /var/stratum/config/{$coin->algo}-{$coin->dedicatedport}.conf";
+				echo "\n\nFirst time launch: screen -dmS $program" . ' $STRATUM_DIR' . "/run.sh {$coin->algo}";
+        }
+
+        echo "\n";
+        echo CHtml::closetag("pre");
+
+        echo CHtml::tag("hr");
         echo "<b>Coin Daemon Commands</b>:";
         echo "<b>You MUST use this format or coins will not work!</b>:";
         echo CHtml::opentag("pre");
