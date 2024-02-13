@@ -120,9 +120,9 @@ $('#algo_select').change(function(event)
 
 <table width=100%><tr><td valign=top width=33%>
 
-<div class="main-left-box">
-<div class="main-left-title">Last 48 Hours</div>
-<div class="main-left-inner">
+<div class='ui-widget'>
+<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>Last 48 hrs</div>
+<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>
 
 <ul>
 <li>Average Hashrate: <b>{$hashrate1}h/s</b></li>
@@ -135,16 +135,15 @@ $('#algo_select').change(function(event)
 <div id='graph_results_2' style='height: $height;'></div><br><br>
 <div id='graph_results_3' style='height: $height;'></div><br><br>
 
-</div></div><br>
+</div></div></div></div><br>
 
 </td>
 <td></td>
 <td valign=top width=33%>
 
-<div class="main-left-box">
-<div class="main-left-title">Last 7 Days</div>
-<div class="main-left-inner">
-
+<div class='ui-widget'>
+<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>Last 7 Days</div>
+<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>
 <ul>
 <li>Average Hashrate: <b>{$hashrate2}h/s</b></li>
 <li>BTC Value: <b>$total2</b></li>
@@ -156,16 +155,15 @@ $('#algo_select').change(function(event)
 <div id='graph_results_5' style='height: $height;'></div><br><br>
 <div id='graph_results_6' style='height: $height;'></div><br><br>
 
-</div></div><br>
+</div></div></div></div><br>
 
 </td>
 <td></td>
 <td valign=top width=33%>
 
-<div class="main-left-box">
-<div class="main-left-title">Last 30 Days</div>
-<div class="main-left-inner">
-
+<div class='ui-widget'>
+<div style='padding:5px' class='ui-widget-header ui-corner-tl ui-corner-tr'>Last 30 Days</div>
+<div style='padding:5px' class='ui-widget-content ui-corner-bl ui-corner-br'>
 <ul>
 <li>Average Hashrate: <b>{$hashrate3}h/s</b></li>
 <li>BTC Value: <b>$total3</b></li>
@@ -177,7 +175,7 @@ $('#algo_select').change(function(event)
 <div id='graph_results_8' style='height: $height;'></div><br><br>
 <div id='graph_results_9' style='height: $height;'></div><br><br>
 
-</div></div><br>
+</div></div></div></div><br>
 
 </td></tr></table>
 
