@@ -591,7 +591,7 @@ if ($coin->id)
 
                 echo "\ncp /var/stratum/config/{$coin->algo}.conf /var/stratum/config/{$coin->algo}-{$coin->dedicatedport}.conf";
                 echo "\nsudo sed -i '/.*port =.*/c\port = {$coin->dedicatedport}' /var/stratum/config/{$coin->algo}-{$coin->dedicatedport}.conf";
-				echo "\n\nFirst time launch: screen -dmS $program /var/stratum/run.sh {$coin->algo}";
+				echo "\n\nFirst time launch: screen -dmS $program /var/stratum/run.sh {$coin->algo}-{$coin->dedicatedport}";
         }
 
         echo "\n";
