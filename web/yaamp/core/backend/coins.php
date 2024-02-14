@@ -117,10 +117,10 @@ function BackendCoinsUpdate()
         if ($coin->auxpow == NULL) {
             $ret = $remote->getauxblock();
 
-            if (strcasecmp($remote->error, 'method not found') == 0)
-                $coin->auxpow = false;
-            else
+            if (strcasecmp($remote->error, 'method not found') == 1)
                 $coin->auxpow = true;
+            else
+                $coin->auxpow = false;
         }
 
         // Change for segwit
