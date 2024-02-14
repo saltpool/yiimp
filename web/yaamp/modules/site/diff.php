@@ -1,8 +1,8 @@
 <br>
 
-<div class="main-left-box">
-<div class="main-left-title">Yiimp Stratum Difficulty</div>
-<div class="main-left-inner">
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Yiimp Stratum Difficulty</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 <center>
 <br>
 <b>
@@ -25,8 +25,7 @@ if you want to set the difficulty to 64, you would use:</p>
 <p>Lyra2: from 0.01 to 2048</p>
 
 <p style="width: 700px;">If the difficulty is set higher than one of the a mined coins, it will be forced down to fit
-	the lowest coin's difficulty.</p>
+        the lowest coin's difficulty.</p>
 
-<br><br><br><br><br><br><br><br><br><br>
-</b></center></div></div>
+</b></center></div></div></div></div>
 <br>
