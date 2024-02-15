@@ -14,7 +14,6 @@ define('EXCH_BTER_SECRET', '');
 define('EXCH_CCEX_SECRET', '');
 define('EXCH_CEXIO_SECRET', '');
 define('EXCH_COINMARKETS_PASS', '');
-define('EXCH_CRYPTOPIA_SECRET', '');
 define('EXCH_EMPOEX_SECKEY', '');
 define('EXCH_HITBTC_SECRET', '');
 define('EXCH_KRAKEN_SECRET','');

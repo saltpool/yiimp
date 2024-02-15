@@ -33,7 +33,6 @@ require_once("empoex.php");
 require_once("jubi.php");
 require_once("alcurex.php");
 require_once("binance.php");
-require_once("cryptopia.php");
 require_once("hitbtc.php");
 require_once("kucoin.php");
 require_once("livecoin.php");
@@ -102,8 +101,6 @@ function getMarketUrl($coin, $marketName)
 		$url = "https://crex24.com/exchange/{$symbol}-{$base}";
 	else if($market == 'cryptobridge')
 		$url = "https://wallet.crypto-bridge.org/market/BRIDGE.{$symbol}_BRIDGE.{$base}";
-	else if($market == 'cryptopia')
-		$url = "https://www.cryptopia.co.nz/Exchange?market={$symbol}_{$base}";
 	else if($market == 'cryptowatch')
 		$url = "https://cryptowat.ch/{$exchange}/{$lowbase}{$lowsymbol}";
 	else if($market == 'c-cex')

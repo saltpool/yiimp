@@ -36,7 +36,6 @@ if (!defined('EXCH_CEXIO_ID')) define('EXCH_CEXIO_ID', '');
 if (!defined('EXCH_CEXIO_KEY')) define('EXCH_CEXIO_KEY', '');
 if (!defined('EXCH_CREX24_KEY')) define('EXCH_CREX24_KEY', '');
 if (!defined('EXCH_CRYPTOBRIDGE_ID')) define('EXCH_CRYPTOBRIDGE_ID', '');
-if (!defined('EXCH_CRYPTOPIA_KEY')) define('EXCH_CRYPTOPIA_KEY', '');
 if (!defined('EXCH_HITBTC_KEY')) define('EXCH_HITBTC_KEY', '');
 if (!defined('EXCH_POLONIEX_KEY')) define('EXCH_POLONIEX_KEY', '');
 if (!defined('EXCH_YOBIT_KEY')) define('EXCH_YOBIT_KEY', '');

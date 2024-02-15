@@ -19,7 +19,6 @@ function BackendPricesUpdate()
     updateCCexMarkets();
     updateCoinbeneMarkets();
     updateCrex24Markets();
-    updateCryptopiaMarkets();
     updateHitBTCMarkets();
     updateYobitMarkets();
     updateAlcurexMarkets();
@@ -1226,120 +1225,6 @@ function updateCrex24Markets()
             }
         }
     }
-}
-
-function updateCryptopiaMarkets()
-{
-    $exchange = 'cryptopia';
-    if (exchange_get($exchange, 'disabled')) return;
-
-    $list = getdbolist('db_markets', "name LIKE '$exchange%'");
-    if (empty($list)) return;
-
-    $data = cryptopia_api_query('GetMarkets', 24);
-    if (!is_object($data)) return;
-
-    foreach ($list as $market)
-    {
-        $coin = getdbo('db_coins', $market->coinid);
-        if (!$coin) continue;
-
-        $symbol = $coin->getOfficialSymbol();
-        $pair = strtoupper($symbol) . '/BTC';
-
-        $sqlFilter = '';
-        if (!empty($market->base_coin))
-        {
-            $pair = strtoupper($symbol . '/' . $market->base_coin);
-            $sqlFilter = "AND base_coin='{$market->base_coin}'";
-        }
-
-        if (market_get($exchange, $symbol, "disabled"))
-        {
-            $market->disabled = 1;
-            $market->message = 'disabled from settings';
-            $market->save();
-            continue;
-        }
-        else if ($market->message == 'disabled from settings')
-        {
-            $market->disabled = 0;
-            $market->message = '';
-            $market->save();
-        }
-
-        foreach ($data->Data as $ticker)
-        {
-            if ($ticker->Label === $pair)
-            {
-
-                if ($market->disabled < 9)
-                {
-                    $nbm = (int)dboscalar("SELECT COUNT(id) FROM markets WHERE coinid={$coin->id} $sqlFilter");
-                    $market->disabled = ($ticker->BidPrice < $ticker->AskPrice / 2) && ($nbm > 1);
-                }
-
-                $price2 = ($ticker->BidPrice + $ticker->AskPrice) / 2;
-                $market->price2 = AverageIncrement($market->price2, $price2);
-                $market->price = AverageIncrement($market->price, $ticker->BidPrice * 0.98);
-                $market->marketid = $ticker->TradePairId;
-                $market->pricetime = time();
-                $market->save();
-
-                if (empty($coin->price) && !$market->disabled && strpos($pair, 'BTC'))
-                {
-                    $coin->price = $market->price;
-                    $coin->price2 = $market->price2;
-                    $coin->save();
-                }
-                //				debuglog("$exchange: $pair $market->price ".bitcoinvaluetoa($market->price2));
-                break;
-            }
-        }
-    }
-
-    if (empty(EXCH_CRYPTOPIA_KEY)) return;
-
-    $last_checked = cache()->get($exchange . '-deposit_address-check');
-    if ($last_checked) return;
-
-    $addresses = array();
-    sleep(1);
-    $query = cryptopia_api_user('GetBalance');
-    if (is_object($query) && is_array($query->Data)) foreach ($query->Data as $balance)
-    {
-        $addr = objSafeVal($balance, 'Address');
-        if (!empty($addr)) $addresses[$balance->Symbol] = $addr;
-    }
-    // for some reason, no more available in global GetBalance api
-    $needCurrencyQueries = empty($addresses);
-
-    if (!empty($list)) foreach ($list as $market)
-    {
-        $coin = getdbo('db_coins', $market->coinid);
-        if (!$coin) continue;
-
-        $symbol = $coin->getOfficialSymbol();
-        $addr = arraySafeVal($addresses, $symbol);
-        if ($needCurrencyQueries)
-        {
-            if (!$coin->installed) continue;
-            sleep(2);
-            $query = cryptopia_api_user('GetDepositAddress', array(
-                'Currency' => $symbol
-            ));
-            $dep = objSafeVal($query, 'Data');
-            $addr = objSafeVal($dep, 'Address');
-        }
-        if (!empty($addr) && $market->deposit_address != $addr)
-        {
-            debuglog("$exchange: deposit address for {$symbol} updated");
-            $market->deposit_address = $addr;
-            $market->save();
-        }
-    }
-    cache()
-        ->set($exchange . '-deposit_address-check', time() , 12 * 3600);
 }
 
 function updateHitBTCMarkets()

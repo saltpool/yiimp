@@ -45,7 +45,6 @@ define('YAAMP_DEFAULT_ALGO', 'x11');
 define('YAAMP_USE_NGINX', false);
 
 // Exchange public keys (private keys are in a separate config file)
-define('EXCH_CRYPTOPIA_KEY', '');
 define('EXCH_POLONIEX_KEY', '');
 define('EXCH_BITTREX_KEY', '');
 define('EXCH_BLEUTRADE_KEY', '');

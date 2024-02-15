@@ -126,60 +126,6 @@ class CoindbCommand extends CConsoleCommand
         return $nbUpdated;
     }
 
-    /**
-     * Special for cryptopia coins
-     */
-    protected function getCryptopiaCurrencies()
-    {
-        $array = array();
-        require_once ($this->basePath . '/yaamp/core/exchange/cryptopia.php');
-        $data = cryptopia_api_query('GetCurrencies');
-
-        if (is_object($data) && !empty($data->Data)) foreach ($data->Data as $coin)
-        {
-            $key = strtoupper($coin->Symbol);
-            if (empty($key)) continue;
-            $array[$key] = $coin;
-        }
-
-        return $array;
-    }
-
-    public function updateCryptopiaLabels()
-    {
-        $coins = new db_coins;
-        $nbUpdated = 0;
-
-        $dataset = $coins->findAll(array(
-            'condition' => "name=:u OR algo='' OR algo='scrypt'",
-            'params' => array(
-                ':u' => 'unknown'
-            )
-        ));
-
-        if (!empty($dataset))
-        {
-            $json = self::getCryptopiaCurrencies();
-
-            foreach ($dataset as $coin)
-            {
-                if ($coin->name == 'unknown' && isset($json[$coin->symbol]))
-                {
-                    $cc = $json[$coin->symbol];
-                    if ($cc->Name != $coin->name)
-                    {
-                        echo "{$coin->symbol}: {$cc->Name}\n";
-                        $coin->name = $cc->Name;
-                        if ($cc->Algorithm != 'scrypt') $coin->algo = strtolower($cc->Algorithm);
-                        $nbUpdated += $coin->save();
-                    }
-                }
-            }
-            if ($nbUpdated) echo "$nbUpdated coin labels updated from cryptopia\n";
-        }
-        return $nbUpdated;
-    }
-
     public function updateLiveCoinLabels()
     {
         if (exchange_get('livecoin', 'disabled') == true) return 0;

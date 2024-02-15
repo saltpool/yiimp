@@ -165,20 +165,6 @@ function updateRawcoins()
         }
     }
 
-    if (!exchange_get('cryptopia', 'disabled')) {
-        $list = cryptopia_api_query('GetMarkets');
-        if (isset($list->Data)) {
-            dborun("UPDATE markets SET deleted=true WHERE name='cryptopia'");
-            foreach ($list->Data as $item) {
-                $e = explode('/', $item->Label);
-                if (strtoupper($e[1]) !== 'BTC')
-                    continue;
-                $symbol = strtoupper($e[0]);
-                updateRawCoin('cryptopia', $symbol);
-            }
-        }
-    }
-
     if (!exchange_get('cryptobridge', 'disabled')) {
         $list = cryptobridge_api_query('ticker');
         if (is_array($list) && !empty($list)) {
