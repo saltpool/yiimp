@@ -131,7 +131,7 @@ function showPageHeader($logo)
         showItemHeader(controller()->id == 'explorer', '/explorer', 'Explorers');
 
     if (YIIMP_PUBLIC_BENCHMARK)
-        showItemHeader(controller()->id == 'bench', '/bench', 'Benchs');
+        showItemHeader(controller()->id == 'bench', '/bench', 'Benchmarks');
 
     if (YAAMP_RENTAL)
         showItemHeader(controller()->id == 'renting', '/renting', 'Rental');

@@ -47,9 +47,9 @@ span.generic { color: gray; }
 .page .footer { width: auto; };
 </style>
 
-<p style="margin-top: -20px; margin-bottom: 4px; line-height: 22px; font-weight: bolder;">
-Devices in database
-</p>
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Devices in database</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
 end;
 
 $algos_columns = '';
@@ -132,7 +132,7 @@ foreach ($in_db as $row) {
 	echo '</tr>';
 }
 
-echo '</tbody></table><br/>';
+echo '</tbody></table><br/></div></div><br>';
 
 echo '<a href="/site/benchmarks">Learn how to submit your results</a>';
 echo '<br/><br/>';

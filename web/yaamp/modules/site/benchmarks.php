@@ -1,8 +1,9 @@
 <br>
 
-<div class="main-left-box">
-<div class="main-left-title">YiiMP Benchmarks</div>
-<div class="main-left-inner">
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Yiimp Benchmarks</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
+
 
 <p style="width: 700px;">YiiMP now allow users to share their ccminer (1.7.6+) device hashrate, more supported miners will come later.</p>
 
@@ -30,6 +31,4 @@ If you want to monitor a different card with ccminer, use the <b>--device</b> pa
 <li><a href="https://github.com/KlausT/ccminer/releases" target="_blank">https://github.com/KlausT/ccminer/releases</a></li>
 </ul>
 
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
+</div></div>

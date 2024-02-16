@@ -56,6 +56,10 @@ $bench->idchip = $idchip;
 $dp = $bench->search();
 $db_rows = $dp->getData();
 
+<br><div class="ui-widget">
+<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Benchmarks</div>
+<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
+
 echo <<<end
 
 <div align="right" style="margin-bottom: 2px; margin-right: 0px;">
@@ -259,7 +263,7 @@ echo <<<end
 <p style="margin: 0; padding: 0 4px;">
 <a href="/bench/devices">Show current devices in the database</a><br/>
 <a href="/site/benchmarks">Learn how to submit your results</a><br/>
-<br/>
+<br/></div></div>
 </p>
 
 <script type="text/javascript">
