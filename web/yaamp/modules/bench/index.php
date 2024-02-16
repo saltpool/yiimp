@@ -56,9 +56,9 @@ $bench->idchip = $idchip;
 $dp = $bench->search();
 $db_rows = $dp->getData();
 
-<br><div class="ui-widget">
-<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Benchmarks</div>
-<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">
+echo '<br><div class="ui-widget">';
+echo '<div style="padding:5px" class="ui-widget-header ui-corner-tl ui-corner-tr">Benchmarks</div>';
+echo '<div style="padding:5px" class="ui-widget-content ui-corner-bl ui-corner-br">';
 
 echo <<<end
 
