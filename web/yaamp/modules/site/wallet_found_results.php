@@ -58,7 +58,7 @@ foreach($db_blocks as $db_block)
 	if($db_block->category == 'generated' && !$this->admin) continue; // mature stake income
 
 	if($db_block->category == 'immature')
-		echo "<tr style='background-color: #e0d3e8;'>";
+		echo "<tr>";
 	else
 		echo "<tr class='ssrow'>";
 
