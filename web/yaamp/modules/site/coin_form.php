@@ -595,7 +595,7 @@ if ($coin->id)
         {
                 echo "DEDICATED STRATUM PORT LAUNCH:\n";
                 echo "echo '";
-                echo "\nscreen -dmS $program" . ' $STRATUM_DIR' . "/run.sh {$coin->algo}";
+                echo "\nscreen -dmS $program" . ' $STRATUM_DIR' . "/run.sh {$coin->algo}-{$coin->dedicatedport}";
                 echo "' | sudo -E tee -a /etc/screen-stratum.sh >/dev/null 2>&1";
 
                 echo "\ncp /var/stratum/config/{$coin->algo}.conf /var/stratum/config/{$coin->algo}-{$coin->dedicatedport}.conf";
