@@ -11,11 +11,11 @@ You can struggle through it yourself it you want, but this Yiimp repo is designe
 
 ## To install this Yiimp fork use our Yiimp install script.
 ```
-https://github.com/saltpool/yiimp_install_script, pulling the yiimp_install_script-8.2 branch.
+https://github.com/saltpool/yiimp_install_script
 ```
 -  From there follow the instructions and then Yiimp will be installed.
 
-## This is still a work-in-progress. Do not use on your production server yet!
+## This is still a work-in-progress. Use on your production server at your own risk.
 
 ## Credits:
 
